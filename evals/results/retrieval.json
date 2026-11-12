@@ -1,0 +1,611 @@
+{
+  "summary": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "vector_store": "chroma (persistent, cosine)",
+    "passages": 35,
+    "k": 4,
+    "min_score": 0.6,
+    "answerable": 40,
+    "hit_at_1": 0.875,
+    "recall_at_4": 0.975,
+    "mrr": 0.919,
+    "off_topic": 4,
+    "off_topic_rejected": 1.0,
+    "avg_hits_returned": 2.95,
+    "search_ms_p50": 7.3,
+    "search_ms_p95": 10.4,
+    "index_build_ms": 31
+  },
+  "cases": [
+    {
+      "pack": "loans",
+      "q": "Can I get my EMI debited on the 10th instead?",
+      "got": [
+        "KB-L-01",
+        "PAY-2.2",
+        "KB-L-02",
+        "KB-L-03"
+      ],
+      "top_score": 0.7473785281181335,
+      "kind": "answerable",
+      "expect": "KB-L-01",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "I'd like my instalment to come out later in the month",
+      "got": [
+        "KB-L-01"
+      ],
+      "top_score": 0.6072533130645752,
+      "kind": "answerable",
+      "expect": "KB-L-01",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "I opened a new salary account, how do I pay EMIs from it?",
+      "got": [
+        "KB-L-02",
+        "KB-L-03",
+        "PAY-2.2",
+        "KB-L-10"
+      ],
+      "top_score": 0.7571007013320923,
+      "kind": "answerable",
+      "expect": "KB-L-02",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "auto debit failed, can I just pay through UPI?",
+      "got": [
+        "KB-L-03",
+        "PAY-2.2",
+        "PAY-2.1",
+        "KB-L-02"
+      ],
+      "top_score": 0.7855310440063477,
+      "kind": "answerable",
+      "expect": "KB-L-03",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "Do you accept cash for my loan payment?",
+      "got": [
+        "LT-6.3",
+        "KB-L-10",
+        "LT-6.1",
+        "KB-L-03"
+      ],
+      "top_score": 0.7031071186065674,
+      "kind": "answerable",
+      "expect": "KB-L-03",
+      "rank": 4,
+      "ok": false
+    },
+    {
+      "pack": "loans",
+      "q": "I need an interest certificate for income tax",
+      "got": [
+        "KB-L-04"
+      ],
+      "top_score": 0.7769109010696411,
+      "kind": "answerable",
+      "expect": "KB-L-04",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "send me my account statement for last year",
+      "got": [
+        "KB-L-04",
+        "KB-L-01",
+        "KB-L-02",
+        "KB-L-09"
+      ],
+      "top_score": 0.6682075262069702,
+      "kind": "answerable",
+      "expect": "KB-L-04",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "where can I see the APR and all the fees on my loan?",
+      "got": [
+        "KB-L-05",
+        "KB-L-04",
+        "LT-6.3",
+        "LT-6.1"
+      ],
+      "top_score": 0.7475013732910156,
+      "kind": "answerable",
+      "expect": "KB-L-05",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "rates went up again, can I keep my EMI and extend the loan instead?",
+      "got": [
+        "KB-L-10",
+        "KB-L-06",
+        "PAY-2.1",
+        "LT-6.3"
+      ],
+      "top_score": 0.7597649097442627,
+      "kind": "answerable",
+      "expect": "KB-L-06",
+      "rank": 2,
+      "ok": false
+    },
+    {
+      "pack": "loans",
+      "q": "is it possible to move from floating to fixed interest?",
+      "got": [
+        "LT-4.2",
+        "KB-L-06",
+        "LT-6.1",
+        "LT-6.3"
+      ],
+      "top_score": 0.7413389682769775,
+      "kind": "answerable",
+      "expect": "KB-L-06",
+      "rank": 2,
+      "ok": false
+    },
+    {
+      "pack": "loans",
+      "q": "do you charge extra interest when I pay late?",
+      "got": [
+        "KB-L-07",
+        "LT-6.1",
+        "KB-L-08"
+      ],
+      "top_score": 0.7973358631134033,
+      "kind": "answerable",
+      "expect": "KB-L-07",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "will a bounced EMI show up on my CIBIL report?",
+      "got": [
+        "PAY-2.1",
+        "KB-L-08",
+        "KB-L-12",
+        "PAY-2.2"
+      ],
+      "top_score": 0.7203143835067749,
+      "kind": "answerable",
+      "expect": "KB-L-08",
+      "rank": 2,
+      "ok": false
+    },
+    {
+      "pack": "loans",
+      "q": "what paperwork do I get after I finish paying off the loan?",
+      "got": [
+        "KB-L-09",
+        "KB-L-04",
+        "LT-6.3",
+        "FC-1.1"
+      ],
+      "top_score": 0.7344375252723694,
+      "kind": "answerable",
+      "expect": "KB-L-09",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "can I borrow more on top of my existing loan?",
+      "got": [
+        "KB-L-10",
+        "LT-6.1",
+        "LT-6.3",
+        "KB-L-06"
+      ],
+      "top_score": 0.7900910973548889,
+      "kind": "answerable",
+      "expect": "KB-L-10",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "I lost my job and can't afford the EMI right now",
+      "got": [
+        "KB-L-03",
+        "PAY-2.1",
+        "PAY-2.2",
+        "KB-L-02"
+      ],
+      "top_score": 0.6993192434310913,
+      "kind": "answerable",
+      "expect": "KB-L-10",
+      "rank": 0,
+      "ok": false
+    },
+    {
+      "pack": "loans",
+      "q": "my complaint hasn't been resolved for a month, what now?",
+      "got": [
+        "KB-L-11",
+        "DSP-1.1",
+        "KB-L-09",
+        "KB-L-08"
+      ],
+      "top_score": 0.6986556053161621,
+      "kind": "answerable",
+      "expect": "KB-L-11",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "how do I approach the banking ombudsman?",
+      "got": [
+        "KB-L-11"
+      ],
+      "top_score": 0.7683422565460205,
+      "kind": "answerable",
+      "expect": "KB-L-11",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "someone called asking for my OTP to update my loan, is that you?",
+      "got": [
+        "KB-L-12",
+        "KB-L-10",
+        "KB-L-11",
+        "LT-6.3"
+      ],
+      "top_score": 0.7204090356826782,
+      "kind": "answerable",
+      "expect": "KB-L-12",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "is there a penalty if I pay off my floating loan early?",
+      "got": [
+        "LT-6.1",
+        "LT-6.3",
+        "LT-4.2",
+        "KB-L-07"
+      ],
+      "top_score": 0.8061624765396118,
+      "kind": "answerable",
+      "expect": "LT-6.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "how often is my interest rate revised?",
+      "got": [
+        "LT-4.2",
+        "KB-L-06",
+        "KB-L-04",
+        "KB-L-01"
+      ],
+      "top_score": 0.7596601247787476,
+      "kind": "answerable",
+      "expect": "LT-4.2",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "what happens to my tenure if I prepay part of the loan?",
+      "got": [
+        "LT-6.5",
+        "LT-6.3",
+        "LT-6.1",
+        "KB-L-10"
+      ],
+      "top_score": 0.8430143594741821,
+      "kind": "answerable",
+      "expect": "LT-6.5",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "how long is a foreclosure letter valid for?",
+      "got": [
+        "FC-1.1",
+        "KB-L-09"
+      ],
+      "top_score": 0.8441497087478638,
+      "kind": "answerable",
+      "expect": "FC-1.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "how much do you charge when an EMI bounces?",
+      "got": [
+        "PAY-2.1",
+        "DSP-1.1",
+        "KB-L-01",
+        "LT-6.3"
+      ],
+      "top_score": 0.7797995805740356,
+      "kind": "answerable",
+      "expect": "PAY-2.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "my NACH mandate expired",
+      "got": [
+        "PAY-2.2",
+        "KB-L-02"
+      ],
+      "top_score": 0.7710809707641602,
+      "kind": "answerable",
+      "expect": "PAY-2.2",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "how many days do I have to dispute a charge?",
+      "got": [
+        "DSP-1.1"
+      ],
+      "top_score": 0.8544832468032837,
+      "kind": "answerable",
+      "expect": "DSP-1.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "what's a good recipe for biryani?",
+      "got": [],
+      "top_score": null,
+      "kind": "none",
+      "ok": true
+    },
+    {
+      "pack": "loans",
+      "q": "who won the cricket match yesterday?",
+      "got": [],
+      "top_score": null,
+      "kind": "none",
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "I want my statement to be generated on a different date",
+      "got": [
+        "KB-C-01"
+      ],
+      "top_score": 0.6959887742996216,
+      "kind": "answerable",
+      "expect": "KB-C-01",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "if I pay two days after the due date, is there a late fee?",
+      "got": [
+        "KB-C-02",
+        "KB-C-01",
+        "CC-2.1",
+        "CC-5.1"
+      ],
+      "top_score": 0.8115949630737305,
+      "kind": "answerable",
+      "expect": "KB-C-02",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "please cancel my credit card permanently",
+      "got": [
+        "KB-C-03",
+        "CC-5.1",
+        "CC-6.1",
+        "KB-C-10"
+      ],
+      "top_score": 0.688057541847229,
+      "kind": "answerable",
+      "expect": "KB-C-03",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "you increased my limit without asking me",
+      "got": [
+        "KB-C-04"
+      ],
+      "top_score": 0.7439744472503662,
+      "kind": "answerable",
+      "expect": "KB-C-04",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "someone used my card fraudulently, am I liable for it?",
+      "got": [
+        "KB-C-05",
+        "CC-5.1",
+        "CC-6.1",
+        "KB-C-10"
+      ],
+      "top_score": 0.75223708152771,
+      "kind": "answerable",
+      "expect": "KB-C-05",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "how much is one reward point worth?",
+      "got": [
+        "KB-C-06"
+      ],
+      "top_score": 0.7818127870559692,
+      "kind": "answerable",
+      "expect": "KB-C-06",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "can I split my laptop purchase into monthly instalments?",
+      "got": [
+        "KB-C-07"
+      ],
+      "top_score": 0.6208356618881226,
+      "kind": "answerable",
+      "expect": "KB-C-07",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "how do I turn off international transactions?",
+      "got": [
+        "KB-C-08"
+      ],
+      "top_score": 0.7307971119880676,
+      "kind": "answerable",
+      "expect": "KB-C-08",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "what are the fees for withdrawing cash at an ATM with my card?",
+      "got": [
+        "KB-C-09"
+      ],
+      "top_score": 0.857042670249939,
+      "kind": "answerable",
+      "expect": "KB-C-09",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "my card complaint is unresolved after 30 days",
+      "got": [
+        "KB-C-10",
+        "CC-5.1",
+        "KB-C-05",
+        "KB-C-03"
+      ],
+      "top_score": 0.7632217407226562,
+      "kind": "answerable",
+      "expect": "KB-C-10",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "how is the minimum payment calculated?",
+      "got": [
+        "CC-2.1",
+        "KB-C-02"
+      ],
+      "top_score": 0.7844517230987549,
+      "kind": "answerable",
+      "expect": "CC-2.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "can the yearly membership fee be waived?",
+      "got": [
+        "CC-3.2"
+      ],
+      "top_score": 0.8217382431030273,
+      "kind": "answerable",
+      "expect": "CC-3.2",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "what interest do I pay if I don't clear the full bill?",
+      "got": [
+        "CC-4.1",
+        "KB-C-02",
+        "KB-C-03",
+        "CC-2.1"
+      ],
+      "top_score": 0.7402732372283936,
+      "kind": "answerable",
+      "expect": "CC-4.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "there's a charge I don't recognise on my card",
+      "got": [
+        "CC-5.1",
+        "KB-C-02",
+        "CC-3.2",
+        "KB-C-05"
+      ],
+      "top_score": 0.702818751335144,
+      "kind": "answerable",
+      "expect": "CC-5.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "I lost my wallet with my card in it",
+      "got": [
+        "CC-6.1",
+        "CC-5.1"
+      ],
+      "top_score": 0.6769921183586121,
+      "kind": "answerable",
+      "expect": "CC-6.1",
+      "rank": 1,
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "what's the weather in Mumbai today?",
+      "got": [],
+      "top_score": null,
+      "kind": "none",
+      "ok": true
+    },
+    {
+      "pack": "credit_cards",
+      "q": "recommend a good movie to watch",
+      "got": [],
+      "top_score": null,
+      "kind": "none",
+      "ok": true
+    }
+  ]
+}

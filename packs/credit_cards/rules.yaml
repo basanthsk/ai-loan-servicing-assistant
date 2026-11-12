@@ -1,0 +1,38 @@
+topics:
+  dispute:
+    - id: dispute.within_window
+      when: txn.type == "purchase" and days_since_txn <= 60
+      then: {eligible: true, provisional_credit: true, resolution_working_days: 7}
+      clause: CC-5.1
+      explain: Purchases can be disputed within 60 days of the transaction date.
+    - id: dispute.too_old
+      when: txn.type == "purchase"
+      then: {eligible: false}
+      clause: CC-5.1
+      explain: The 60-day dispute window for this transaction has passed.
+    - id: dispute.not_a_purchase
+      then: {eligible: false}
+      clause: CC-5.1
+      explain: Only purchases can be disputed this way; fees are reviewed through a service ticket.
+
+  annual_fee:
+    - id: fee.waived
+      when: card.spend_last_12m >= card.annual_fee_waiver_spend
+      then: {fee_waived: true}
+      clause: CC-3.2
+      explain: Spend in the card year met the waiver threshold, so the annual fee is waived.
+    - id: fee.applies
+      then: {fee_waived: false}
+      clause: CC-3.2
+      explain: Spend in the card year was below the waiver threshold, so the annual fee applies.
+
+  revolving:
+    - id: revolving.paid_in_full
+      when: paid >= card.statement_balance
+      then: {interest_applies: false}
+      clause: CC-4.1
+      explain: Paying the full balance keeps purchases interest-free.
+    - id: revolving.partial
+      then: {interest_applies: true, monthly_rate_pct: 3.75, loses_interest_free_period: true}
+      clause: CC-4.1
+      explain: Paying less than the full balance means interest on the unpaid balance and on new purchases.

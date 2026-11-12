@@ -1,0 +1,38 @@
+{
+  "provider": "Decider",
+  "model": "llm_json via groq,cerebras,openrouter (fast role)",
+  "run_where": "cloud session",
+  "checks": [
+    {
+      "name": "intent",
+      "ok": true,
+      "detail": "\"What's my next EMI?\" -> next_emi (next_emi 0.90, payment_history 0.05, prepayment_quote 0.02, foreclosure 0.02, out_of_scope 0.01) via groq",
+      "ms": 298.3675079999557,
+      "skipped": false
+    },
+    {
+      "name": "barge-in",
+      "ok": true,
+      "detail": "'mm-hmm' -> backchannel (backchannel 0.90, interruption 0.10) via groq",
+      "ms": 406.5580169999521,
+      "skipped": false
+    },
+    {
+      "name": "confirmation",
+      "ok": true,
+      "detail": "\"No wait, don't do that yet.\" -> no (no 0.90, yes 0.05, changed_mind 0.03, unclear 0.02) via groq",
+      "ms": 456.80181699981404,
+      "skipped": false
+    }
+  ],
+  "latency": {
+    "decisions": 3,
+    "ms_min": 298,
+    "ms_max": 457
+  },
+  "notes": [
+    "Baseline only: the LLM backend is a fallback. Decision models are benchmarked against it in evals/bench_decider.py."
+  ],
+  "ok": true,
+  "timestamp": "2026-11-11 02:49:36 UTC"
+}

@@ -1,0 +1,76 @@
+# Policy KB: clauses for loan products (served by the Policy KB mock service).
+# Clauses marked "synthetic" are product terms invented for the demo.
+# Clauses that implement a regulation name it in `source`.
+
+pack: loans
+clauses:
+  - id: LT-4.2
+    title: Interest rate reset on floating-rate loans
+    text: >-
+      The interest rate on a floating-rate loan is the external benchmark (the RBI repo rate)
+      plus a fixed spread agreed at sanction. The rate is reset when the benchmark changes,
+      and at least once every three months. On a reset the EMI is recalculated on the
+      outstanding principal for the remaining tenure, unless the borrower asks to change
+      the tenure instead. The borrower is told about every reset by SMS and email.
+    source: RBI circular on external benchmark-based lending for floating rate loans (2019)
+    url: https://www.rbi.org.in/scripts/BS_CircularIndexDisplay.aspx?Id=11646
+
+  - id: LT-6.1
+    title: Pre-payment of floating-rate loans
+    text: >-
+      No pre-payment or foreclosure charge is levied on a floating-rate loan taken by an
+      individual for any purpose other than business, whether the loan is prepaid in part
+      or in full, whatever the source of funds, and regardless of any lock-in period.
+    source: RBI (Pre-payment Charges on Loans) Directions, 2025, effective 1 January 2026
+    url: https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878
+
+  - id: LT-6.3
+    title: Pre-payment of fixed-rate personal loans
+    text: >-
+      A fixed-rate personal loan can be prepaid in part or in full after the first EMI.
+      Within 12 months of disbursal (the lock-in period) a charge of 4% of the amount
+      prepaid applies. After 12 months the charge is 2% of the amount prepaid.
+    source: synthetic product terms
+
+  - id: LT-6.5
+    title: Effect of a part-prepayment
+    text: >-
+      A part-prepayment reduces the outstanding principal on the day it is received. By
+      default the EMI stays the same and the tenure is shortened. The borrower may instead
+      ask to keep the tenure and reduce the EMI.
+    source: synthetic product terms
+
+  - id: FC-1.1
+    title: Foreclosure process
+    text: >-
+      To close a loan early, the borrower requests a foreclosure statement. The statement
+      shows the outstanding principal, interest accrued since the last EMI, and any
+      applicable charge, and is valid for 7 days. The loan is closed when the amount is
+      received, and the no-dues certificate is issued within 7 working days.
+    source: synthetic product terms (process modelled on lender foreclosure communications)
+    url: https://www.rbl.bank.in/static-pages/foreclosure-communication
+
+  - id: PAY-2.1
+    title: Failed EMI payments
+    text: >-
+      If an EMI debit fails, the lender retries it once within 3 working days. A bounce
+      charge of Rs 500 applies when the failure is caused by insufficient funds or a
+      stopped or expired mandate. No bounce charge applies when the failure is caused by
+      a bank-side technical error. No penal interest is added to the loan rate.
+    source: synthetic product terms
+
+  - id: PAY-2.2
+    title: Expired debit mandate
+    text: >-
+      EMIs are collected by NACH auto-debit mandate. If the mandate expires or is
+      cancelled, the borrower must register a new mandate; until then EMIs can be paid by
+      UPI or net banking.
+    source: synthetic product terms
+
+  - id: DSP-1.1
+    title: Disputing a charge or payment
+    text: >-
+      A borrower can dispute any charge or payment entry within 90 days. A dispute is
+      acknowledged immediately with a reference number and resolved within 7 working days.
+      A bounce charge is reversed if the dispute shows the failure was not the borrower's fault.
+    source: synthetic product terms

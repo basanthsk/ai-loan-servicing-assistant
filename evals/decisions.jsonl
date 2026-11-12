@@ -1,0 +1,183 @@
+{"kind": "intent", "text": "What's my next EMI?", "label": "loan_next_emi", "source": "journeys"}
+{"kind": "intent", "text": "When is my loan instalment due?", "label": "loan_next_emi", "source": "journeys"}
+{"kind": "intent", "text": "How much is my next loan payment?", "label": "loan_next_emi", "source": "journeys"}
+{"kind": "intent", "text": "next emi amount please", "label": "loan_next_emi", "source": "journeys"}
+{"kind": "intent", "text": "When do I have to pay my EMI this month?", "label": "loan_next_emi", "source": "journeys"}
+{"kind": "intent", "text": "Why did my EMI go up?", "label": "loan_emi_change", "source": "journeys"}
+{"kind": "intent", "text": "My EMI increased this month, why?", "label": "loan_emi_change", "source": "journeys"}
+{"kind": "intent", "text": "Why was my previous EMI different from my current one?", "label": "loan_emi_change", "source": "journeys"}
+{"kind": "intent", "text": "Why has my loan interest rate changed?", "label": "loan_emi_change", "source": "journeys"}
+{"kind": "intent", "text": "the emi amount is higher than last month, what happened", "label": "loan_emi_change", "source": "journeys"}
+{"kind": "intent", "text": "What if I prepay 50,000?", "label": "loan_prepayment", "source": "journeys"}
+{"kind": "intent", "text": "Can I pay extra on my loan to finish early?", "label": "loan_prepayment", "source": "journeys"}
+{"kind": "intent", "text": "Would paying 20,000 extra reduce my tenure?", "label": "loan_prepayment", "source": "journeys"}
+{"kind": "intent", "text": "I want to make a part payment on my loan", "label": "loan_prepayment", "source": "journeys"}
+{"kind": "intent", "text": "how much interest do I save if I prepay", "label": "loan_prepayment", "source": "journeys"}
+{"kind": "intent", "text": "Can I close my loan early?", "label": "loan_foreclosure", "source": "journeys"}
+{"kind": "intent", "text": "Am I eligible for foreclosure without a penalty?", "label": "loan_foreclosure", "source": "journeys"}
+{"kind": "intent", "text": "What does it cost to foreclose my loan?", "label": "loan_foreclosure", "source": "journeys"}
+{"kind": "intent", "text": "I want to pay off the whole loan now", "label": "loan_foreclosure", "source": "journeys"}
+{"kind": "intent", "text": "is there a penalty for closing the loan", "label": "loan_foreclosure", "source": "journeys"}
+{"kind": "intent", "text": "Show me the payments that failed in the last six months", "label": "loan_payments", "source": "journeys"}
+{"kind": "intent", "text": "Why did my EMI bounce?", "label": "loan_payments", "source": "journeys"}
+{"kind": "intent", "text": "Did my last EMI go through?", "label": "loan_payments", "source": "journeys"}
+{"kind": "intent", "text": "Was there a charge on my August EMI?", "label": "loan_payments", "source": "journeys"}
+{"kind": "intent", "text": "check my last payment first", "label": "loan_payments", "source": "journeys"}
+{"kind": "intent", "text": "I want to dispute the bounce charge", "label": "loan_dispute", "source": "journeys"}
+{"kind": "intent", "text": "The June charge is wrong, please raise a dispute", "label": "loan_dispute", "source": "journeys"}
+{"kind": "intent", "text": "Raise a complaint about the bounce fee", "label": "loan_dispute", "source": "journeys"}
+{"kind": "intent", "text": "That 500 rupee charge was not my fault, reverse it", "label": "loan_dispute", "source": "journeys"}
+{"kind": "intent", "text": "What are my options on my loan?", "label": "loan_options", "source": "journeys"}
+{"kind": "intent", "text": "Based on my current loan and terms, what can I do?", "label": "loan_options", "source": "journeys"}
+{"kind": "intent", "text": "What choices do I have with my loan?", "label": "loan_options", "source": "journeys"}
+{"kind": "intent", "text": "Send me my loan statement", "label": "loan_statement", "source": "journeys"}
+{"kind": "intent", "text": "Email me the repayment schedule", "label": "loan_statement", "source": "journeys"}
+{"kind": "intent", "text": "I need a statement for my loan for tax", "label": "loan_statement", "source": "journeys"}
+{"kind": "intent", "text": "What's the status of my dispute?", "label": "loan_requests", "source": "journeys"}
+{"kind": "intent", "text": "Has my service request been resolved?", "label": "loan_requests", "source": "journeys"}
+{"kind": "intent", "text": "Any update on my complaint?", "label": "loan_requests", "source": "journeys"}
+{"kind": "intent", "text": "What's the minimum due on my card?", "label": "card_minimum_due", "source": "journeys"}
+{"kind": "intent", "text": "How much do I owe on my credit card?", "label": "card_minimum_due", "source": "journeys"}
+{"kind": "intent", "text": "When is my card bill due?", "label": "card_minimum_due", "source": "journeys"}
+{"kind": "intent", "text": "credit card payment due date?", "label": "card_minimum_due", "source": "journeys"}
+{"kind": "intent", "text": "Why is my credit card bill higher this month?", "label": "card_bill_change", "source": "journeys"}
+{"kind": "intent", "text": "My card statement is much bigger than last month, why?", "label": "card_bill_change", "source": "journeys"}
+{"kind": "intent", "text": "why did my card bill double", "label": "card_bill_change", "source": "journeys"}
+{"kind": "intent", "text": "Was I charged twice on my card?", "label": "card_transactions", "source": "journeys"}
+{"kind": "intent", "text": "What was my biggest card purchase last month?", "label": "card_transactions", "source": "journeys"}
+{"kind": "intent", "text": "Show my card transactions", "label": "card_transactions", "source": "journeys"}
+{"kind": "intent", "text": "Dispute the duplicate charge on my card", "label": "card_dispute", "source": "journeys"}
+{"kind": "intent", "text": "I don't recognise a charge on my credit card, dispute it", "label": "card_dispute", "source": "journeys"}
+{"kind": "intent", "text": "please raise a dispute for the QuickRide charge", "label": "card_dispute", "source": "journeys"}
+{"kind": "intent", "text": "I lost my credit card", "label": "card_block", "source": "journeys"}
+{"kind": "intent", "text": "Block my card, it was stolen", "label": "card_block", "source": "journeys"}
+{"kind": "intent", "text": "Someone is misusing my card, block it now", "label": "card_block", "source": "journeys"}
+{"kind": "intent", "text": "What if I pay only the minimum on my card?", "label": "card_interest", "source": "journeys"}
+{"kind": "intent", "text": "How much interest will I pay on my card?", "label": "card_interest", "source": "journeys"}
+{"kind": "intent", "text": "What's the interest rate on my credit card?", "label": "card_interest", "source": "journeys"}
+{"kind": "intent", "text": "Why was I charged an annual fee?", "label": "card_fees", "source": "journeys"}
+{"kind": "intent", "text": "How do I get the annual fee waived?", "label": "card_fees", "source": "journeys"}
+{"kind": "intent", "text": "what fees are on my card", "label": "card_fees", "source": "journeys"}
+{"kind": "intent", "text": "hello", "label": "greeting", "source": "journeys"}
+{"kind": "intent", "text": "Hi there", "label": "greeting", "source": "journeys"}
+{"kind": "intent", "text": "thanks, that's all", "label": "greeting", "source": "journeys"}
+{"kind": "intent", "text": "good morning", "label": "greeting", "source": "journeys"}
+{"kind": "intent", "text": "What's the weather in Mumbai?", "label": "out_of_scope", "source": "journeys"}
+{"kind": "intent", "text": "Tell me a joke", "label": "out_of_scope", "source": "journeys"}
+{"kind": "intent", "text": "Who won the cricket match yesterday?", "label": "out_of_scope", "source": "journeys"}
+{"kind": "intent", "text": "Can you book me a flight to Delhi?", "label": "out_of_scope", "source": "journeys"}
+{"kind": "intent", "text": "What's the best mutual fund to buy?", "label": "out_of_scope", "source": "journeys"}
+{"kind": "intent", "text": "Can I move my EMI date to the 10th?", "label": "loan_policy", "source": "journeys"}
+{"kind": "intent", "text": "How do I change the bank account my EMI is debited from?", "label": "loan_policy", "source": "journeys"}
+{"kind": "intent", "text": "Will a late EMI affect my credit score?", "label": "loan_policy", "source": "journeys"}
+{"kind": "intent", "text": "Can I switch my loan to a fixed rate?", "label": "loan_policy", "source": "journeys"}
+{"kind": "intent", "text": "I need an interest certificate for my taxes", "label": "loan_policy", "source": "journeys"}
+{"kind": "intent", "text": "Can I change my credit card statement date?", "label": "card_policy", "source": "journeys"}
+{"kind": "intent", "text": "How do I close my credit card?", "label": "card_policy", "source": "journeys"}
+{"kind": "intent", "text": "How much is a reward point worth?", "label": "card_policy", "source": "journeys"}
+{"kind": "intent", "text": "Am I liable for a fraudulent transaction on my card?", "label": "card_policy", "source": "journeys"}
+{"kind": "intent", "text": "Can I convert a big card purchase into EMIs?", "label": "card_policy", "source": "journeys"}
+{"kind": "confirmation", "text": "yes", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Yes please", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "go ahead", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Sure, do it", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Yes, that's right, submit it", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "yep confirm", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Okay go ahead with that", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "please proceed", "label": "yes", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "no", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "No, don't", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "cancel", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "No thanks, not now", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Don't do that", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "stop, I don't want that", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "No wait, don't do that yet.", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Not now, cancel it", "label": "no", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Actually, what's my next EMI first?", "label": "changed_mind", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Wait, make it 30,000 instead", "label": "changed_mind", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Hold on, which loan is this for?", "label": "changed_mind", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Actually check my last payment first", "label": "changed_mind", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "Yes but first tell me the charge", "label": "changed_mind", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "hmm", "label": "unclear", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "maybe", "label": "unclear", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "I'm not sure", "label": "unclear", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "confirmation", "text": "what?", "label": "unclear", "source": "journeys", "context": "Request: Submit a prepayment of ₹50,000 on loan L-1042."}
+{"kind": "barge_in", "text": "mm-hmm", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "okay", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "right", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "uh-huh", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "yeah", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "I see", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "got it", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "sure", "label": "backchannel", "source": "journeys"}
+{"kind": "barge_in", "text": "Actually, check my last payment first", "label": "interruption", "source": "journeys"}
+{"kind": "barge_in", "text": "Wait, stop", "label": "interruption", "source": "journeys"}
+{"kind": "barge_in", "text": "No, I meant the other loan", "label": "interruption", "source": "journeys"}
+{"kind": "barge_in", "text": "Hold on, what about my card?", "label": "interruption", "source": "journeys"}
+{"kind": "barge_in", "text": "Sorry, can you repeat the amount?", "label": "interruption", "source": "journeys"}
+{"kind": "barge_in", "text": "Stop, that's wrong", "label": "interruption", "source": "journeys"}
+{"kind": "intent", "text": "I lost my card", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "I think my card was stolen.", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "I believe my credit card was stolen.", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "I cant find my card, it's gone.", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "How do I deal with a stolen card?", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "I think someone is using my card to make transactions I don't remember.", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "Someone is using my account to do online shopping! Please freeze it asap", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "What do I do if I think someone managed to get my card information?", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "someone is using my account", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "I think someone else is using my card.  There are transactions I didn't make.", "label": "card_block", "source": "banking77"}
+{"kind": "intent", "text": "I have a transaction that shows several times", "label": "card_transactions", "source": "banking77"}
+{"kind": "intent", "text": "Why is there a transaction that shows multiple times?", "label": "card_transactions", "source": "banking77"}
+{"kind": "intent", "text": "Why am I being charged twice fro a restaurant?", "label": "card_transactions", "source": "banking77"}
+{"kind": "intent", "text": "A transaction is repeated several times on my account.", "label": "card_transactions", "source": "banking77"}
+{"kind": "intent", "text": "I think something may have happened that caused a charge to show up twice.", "label": "card_transactions", "source": "banking77"}
+{"kind": "intent", "text": "For the first time I got a fee on my account. How do I know when you charge these fees?", "label": "card_fees", "source": "banking77"}
+{"kind": "intent", "text": "Why do you charge for payments? Why aren't your charges clearly laid out in the agreement?", "label": "card_fees", "source": "banking77"}
+{"kind": "intent", "text": "I was charged a fee for a card payment. Why?", "label": "card_fees", "source": "banking77"}
+{"kind": "intent", "text": "I would appreciate that someone let me know when there is an extra charge for payments. I was checking the app earlier and saying a charge on one of my payments that was additional that no one made me aware of before.", "label": "card_fees", "source": "banking77"}
+{"kind": "intent", "text": "Why was I charged a fee when I paid with card?", "label": "card_fees", "source": "banking77"}
+{"kind": "intent", "text": "What foreign exchange rate will you use?", "label": "card_policy", "source": "banking77"}
+{"kind": "intent", "text": "How often do your exchange rates change", "label": "card_policy", "source": "banking77"}
+{"kind": "intent", "text": "What do you base your exchange rates on?", "label": "card_policy", "source": "banking77"}
+{"kind": "intent", "text": "What currencies is an exchange rate calculated in?", "label": "card_policy", "source": "banking77"}
+{"kind": "intent", "text": "How did you come up with your exchange rates?", "label": "card_policy", "source": "banking77"}
+{"kind": "intent", "text": "How do I know if my top up was unsuccessful?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "Why was my top-up unsuccessful?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "My funding to my card didn't go through.", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "Why didn`t my topup go through?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "Why can't I top up?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "How do I top up with Apple Pay?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "How do I top up? Can I use my apple watch?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "How do I get the Top Up feature on my apple watch working?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "Can I use my Apple Watch to to top up?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "Can I use the system Google Pay for top-ups?", "label": "out_of_scope", "source": "banking77"}
+{"kind": "intent", "text": "wanna lock an amex on mobile help me", "label": "card_block", "source": "bitext"}
+{"kind": "intent", "text": "I want to block a Visa on mobile", "label": "card_block", "source": "bitext"}
+{"kind": "intent", "text": "my card was stolen i wanna block it", "label": "card_block", "source": "bitext"}
+{"kind": "intent", "text": "i have to lock an amex help me", "label": "card_block", "source": "bitext"}
+{"kind": "intent", "text": "what to do if i have lost my credit card i need assistance locking it", "label": "card_block", "source": "bitext"}
+{"kind": "intent", "text": "id like to know about the credit card annual fee will ufind some information", "label": "card_fees", "source": "bitext"}
+{"kind": "intent", "text": "I have to check the card annual fees, can you help me?", "label": "card_fees", "source": "bitext"}
+{"kind": "intent", "text": "I need to check the card annual fee, where can I do it?", "label": "card_fees", "source": "bitext"}
+{"kind": "intent", "text": "I'd like to know about the credit card annuals fees, how could I find more information?", "label": "card_fees", "source": "bitext"}
+{"kind": "intent", "text": "i cant find mmy card annuals fees will ya help me check them", "label": "card_fees", "source": "bitext"}
+{"kind": "intent", "text": "I want to check the current balance on my  cards, can I get some help?", "label": "card_minimum_due", "source": "bitext"}
+{"kind": "intent", "text": "I want to know about the curremt balance on my cards, how can I find more information?", "label": "card_minimum_due", "source": "bitext"}
+{"kind": "intent", "text": "wanna know about the current balance on my credit card how can i ifnd more information", "label": "card_minimum_due", "source": "bitext"}
+{"kind": "intent", "text": "I wan to check the current balance on my credit cards, how to do it?", "label": "card_minimum_due", "source": "bitext"}
+{"kind": "intent", "text": "I want to see the current balance on my credit card, could I get some help?", "label": "card_minimum_due", "source": "bitext"}
+{"kind": "intent", "text": "I would like to  check the loan payment, I need help", "label": "loan_payments", "source": "bitext"}
+{"kind": "intent", "text": "I'd like to see thhe loan payment, where can I do it?", "label": "loan_payments", "source": "bitext"}
+{"kind": "intent", "text": "i got to see the loan payment where to do it", "label": "loan_payments", "source": "bitext"}
+{"kind": "intent", "text": "id like to see the loan payments i need assistance", "label": "loan_payments", "source": "bitext"}
+{"kind": "intent", "text": "where can I check the loan payments?", "label": "loan_payments", "source": "bitext"}
+{"kind": "intent", "text": "how can i cancel a mastercard online", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "I got to cancel a credit card on mobile , can I get some help?", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "I would like to cancel a credit card online, could you help me?", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "where can I cancel a Visa?", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "could you help me canceling a Master Card?", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "I am traveling overseas, I would like to activate an Amex for  international usage", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "im travelling abroad can ya help me activating a master card for international usage", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "im travelling abroad how to activate an amex for international usage", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "im traveling abroad would it be possible to acitvate a card for international usage", "label": "card_policy", "source": "bitext"}
+{"kind": "intent", "text": "I'm traveling overseas I'd like to activate a visq for international usage", "label": "card_policy", "source": "bitext"}

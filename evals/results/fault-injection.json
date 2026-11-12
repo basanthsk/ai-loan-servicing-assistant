@@ -1,0 +1,116 @@
+{
+ "run_at": "2026-11-11 03:59 UTC",
+ "llm_chain": "stub",
+ "turns": [
+  {
+   "turn": 1,
+   "phase": "normal",
+   "payments_call_ms": 555,
+   "payments_ok": true,
+   "circuit": "closed",
+   "failed_fast": false,
+   "turn_ms": 2003,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 2,
+   "phase": "normal",
+   "payments_call_ms": 476,
+   "payments_ok": true,
+   "circuit": "closed",
+   "failed_fast": false,
+   "turn_ms": 1848,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 3,
+   "phase": "payments down",
+   "payments_call_ms": 1721,
+   "payments_ok": false,
+   "circuit": "closed",
+   "failed_fast": false,
+   "turn_ms": 2834,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 4,
+   "phase": "payments down",
+   "payments_call_ms": 1947,
+   "payments_ok": false,
+   "circuit": "open",
+   "failed_fast": false,
+   "turn_ms": 3061,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 5,
+   "phase": "payments down",
+   "payments_call_ms": 0,
+   "payments_ok": false,
+   "circuit": "open",
+   "failed_fast": true,
+   "turn_ms": 1113,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 6,
+   "phase": "payments down",
+   "payments_call_ms": 0,
+   "payments_ok": false,
+   "circuit": "open",
+   "failed_fast": true,
+   "turn_ms": 1119,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 7,
+   "phase": "payments down",
+   "payments_call_ms": 0,
+   "payments_ok": false,
+   "circuit": "open",
+   "failed_fast": true,
+   "turn_ms": 1119,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 8,
+   "phase": "payments down",
+   "payments_call_ms": 0,
+   "payments_ok": false,
+   "circuit": "open",
+   "failed_fast": true,
+   "turn_ms": 1118,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 9,
+   "phase": "recovered",
+   "payments_call_ms": 920,
+   "payments_ok": true,
+   "circuit": "closed",
+   "failed_fast": false,
+   "turn_ms": 2228,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  },
+  {
+   "turn": 10,
+   "phase": "recovered",
+   "payments_call_ms": 626,
+   "payments_ok": true,
+   "circuit": "closed",
+   "failed_fast": false,
+   "turn_ms": 2028,
+   "answered": true,
+   "answer": "Here is what I found in your account, based on the details above."
+  }
+ ]
+}

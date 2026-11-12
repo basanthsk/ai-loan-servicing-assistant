@@ -1,0 +1,85 @@
+# Golden questions. Expected figures come from the seeded data and the calculators
+# (computed by calling the pack functions directly, not by an LLM).
+#
+# Checks on the final answer:
+#   numbers: every number must appear (Indian or plain format, +/- 1 rupee)
+#   words:   every word or phrase must appear (case-insensitive); "a|b" means either
+#   not:     none of these may appear
+#   action:  this action must be proposed (confirmation card raised)
+# `turns` runs earlier messages first in the same session; checks apply to the last.
+
+loans:
+  - {id: L01, customer: C1001, q: "What's my next EMI?", numbers: [12926, 6787], words: ["December|Dec"]}
+  - {id: L02, customer: C1001, q: "Why did my EMI go up this month?", numbers: [12828, 12926, 10.75], words: ["repo"]}
+  - {id: L03, customer: C1001, q: "Why was my previous EMI different from my current one?", numbers: [12828, 12926], words: ["rate"]}
+  - {id: L04, customer: C1001, q: "If I make a ₹50,000 prepayment today on my floating loan, how much interest would I save?", numbers: [18215], words: []}
+  - {id: L05, customer: C1001, q: "What happens if I prepay ₹50,000 on L-1042?", numbers: [18215], words: ["5 months|five months"]}
+  - {id: L06, customer: C1001, q: "If I prepay 50,000 on L-1042 and keep the same tenure, what would my new EMI be?", numbers: [11332], words: []}
+  - {id: L07, customer: C1001, q: "Would paying ₹20,000 extra on L-1042 reduce my tenure?", numbers: [7670], words: ["2 months|two months"]}
+  - {id: L08, customer: C1001, q: "Am I eligible for foreclosure without a penalty on my floating rate loan?", numbers: [406259], words: ["no charge|without|no penalty|penalty-free|free"]}
+  - {id: L09, customer: C1001, q: "Can I close my fixed rate loan L-1043 without a penalty?", numbers: [7072], words: ["4%|4 %|four percent|lock-in|lock in"]}
+  - {id: L10, customer: C1001, q: "Is there a prepayment charge on L-1043 if I pay 50,000 now?", numbers: [2000], words: []}
+  - {id: L11, customer: C1001, q: "Show me the payments that failed in the last six months and explain what happened.", numbers: [500], words: ["June|Jun", "August|Aug", "September|Sep"], not: ["you missed", "missed emi", "missed payment", "missed your", "was not paid"]}
+  - {id: L12, customer: C1001, q: "How much did I pay in bounce charges in the last 6 months?", numbers: [1000], words: []}
+  - {id: L13, customer: C1001, q: "Why did my September EMI debit fail?", words: ["technical|bank"], not: ["insufficient"]}
+  - {id: L14, customer: C1001, q: "Why was there a charge on my August EMI?", numbers: [500], words: ["mandate"]}
+  - {id: L15, customer: C1001, q: "Based on my current loan and applicable terms, what are my options?", numbers: [406259], words: ["prepay|part", "foreclos"]}
+  - {id: L16, customer: C1001, q: "What is the interest rate on L-1042 now?", numbers: [10.75], words: []}
+  - {id: L17, customer: C1001, q: "How many EMIs are left on L-1042?", numbers: [37], words: []}
+  - {id: L18, customer: C1001, q: "When is my fixed rate loan's next EMI due?", numbers: [6787], words: ["November|Nov"]}
+  - {id: L19, customer: C1001, q: "Please raise a dispute about the June bounce charge, the money was in my account.", action: raise_payment_dispute}
+  - {id: L20, customer: C1001, q: "Email me the repayment statement for L-1042.", action: send_repayment_statement}
+  - {id: L21, customer: C1001, q: "I want to prepay 50,000 on L-1042, please submit it.", action: request_prepayment}
+  - {id: L22, customer: C1001, turns: ["Why did my EMI go up?"], q: "What if I prepay ₹20,000 on it?", numbers: [7670], words: []}
+  - {id: L23, customer: C1001, turns: ["What's my next EMI?", "Actually, check my last payment first."], q: "Okay, now tell me whether paying ₹20,000 extra would reduce my tenure.", numbers: [7670], words: ["2 months|two months"]}
+  - {id: L24, customer: C1002, q: "What's my next EMI?", numbers: [20509], words: ["December|Dec"]}
+  - {id: L25, customer: C1002, q: "Why did my EMI increase?", numbers: [20392, 20509], words: ["repo|rate"]}
+  - {id: L26, customer: C1002, q: "What happens if I prepay ₹50,000?", numbers: [13020], words: []}
+  - {id: L27, customer: C1002, q: "Did any of my payments fail recently?", words: ["no|none|all|successful"], not: ["bounce charge of"]}
+  - {id: L28, customer: C1003, q: "Can I foreclose my loan without a penalty?", numbers: [3796], words: ["2%|2 %|two percent"]}
+  - {id: L29, customer: C1003, q: "If I prepay 50,000, is there a charge?", numbers: [1000], words: []}
+  - {id: L30, customer: C1003, q: "Why did my EMI change?", words: ["fixed|not changed|hasn't changed|has not changed|same|unchanged"]}
+  - {id: L31, customer: C1001, q: "What's the weather in Mumbai today?", words: ["only help|can only|accounts"]}
+  # Policy questions answered by retrieval (RAG) from the policy documents, with the passage cited
+  - {id: L32, customer: C1001, q: "Can I move my EMI date to the 10th of the month?", words: ["KB-L-01", "once a year|once every year|once per year"]}
+  - {id: L33, customer: C1001, q: "I opened a new bank account. How do I get my EMIs debited from it?", words: ["KB-L-02", "mandate"]}
+  - {id: L34, customer: C1001, q: "My complaint hasn't been resolved for over a month. What can I do?", words: ["KB-L-11", "ombudsman"]}
+  - {id: L35, customer: C1001, q: "Will a late EMI affect my credit score?", words: ["KB-L-08", "bureau|cibil|credit report"]}
+  - {id: L36, customer: C1001, q: "When rates go up, can I extend my tenure instead of paying a higher EMI?", words: ["KB-L-06", "tenure"]}
+  - {id: L37, customer: C1001, q: "Do you offer a gold loan against jewellery?", words: ["don't have|do not have|couldn't find|could not find|no information|not covered|don't offer|do not offer|aren't offered|not offered|isn't offered|not available|only help|unable to help|can't help|cannot help"]}
+
+cards:
+  - {id: C01, customer: C1001, q: "How much do I owe on my credit card?", numbers: [43086], words: []}
+  - {id: C02, customer: C1001, q: "What's the minimum due on my card?", numbers: [2154], words: []}
+  - {id: C03, customer: C1001, q: "When is my credit card bill due?", words: ["20 November|November 20|20 Nov|Nov 20"]}
+  - {id: C04, customer: C1001, q: "Why is my credit card bill higher this month?", numbers: [24999], words: ["fee"]}
+  - {id: C05, customer: C1001, q: "Why is my card bill so much more than last month?", numbers: [24999], words: []}  # revised: was [43086, 21880]; a correct answer may give the increase instead of both balances
+  - {id: C06, customer: C1001, q: "Is there anything odd on my latest card statement?", numbers: [1299], words: ["duplicate|twice|two"]}
+  - {id: C07, customer: C1001, q: "Was I charged twice for anything on my card?", numbers: [1299], words: ["QuickRide"]}
+  - {id: C08, customer: C1001, q: "What was my biggest card purchase last month?", numbers: [24999], words: ["Croma"]}
+  - {id: C09, customer: C1001, q: "How much were the fees on my latest card statement?", numbers: [3539], words: []}
+  - {id: C10, customer: C1001, q: "Why was I charged an annual fee on my card?", numbers: [2999], words: []}
+  - {id: C11, customer: C1001, q: "How much more do I need to spend to get the annual fee waived?", numbers: [53700], words: []}
+  - {id: C12, customer: C1001, q: "What happens if I pay only the minimum on my card?", numbers: [1535], words: ["interest"]}
+  - {id: C13, customer: C1001, q: "How much interest would I pay if I pay just the minimum due?", numbers: [1535], words: []}
+  - {id: C14, customer: C1001, q: "If I pay the full card balance, do I pay any interest?", words: ["no interest|interest-free|interest free|won't|will not|no"]}
+  - {id: C15, customer: C1001, q: "What was my previous card statement amount?", numbers: [21880], words: []}
+  - {id: C16, customer: C1001, q: "Please dispute the duplicate QuickRide charge on my card.", action: dispute_card_transaction}
+  - {id: C17, customer: C1001, q: "I lost my credit card, block it now.", action: block_card}
+  - {id: C18, customer: C1001, q: "Someone is misusing my card, please block it.", action: block_card}
+  - {id: C19, customer: C1001, turns: ["Why is my credit card bill higher this month?"], q: "Yes, dispute the duplicate one.", action: dispute_card_transaction}
+  - {id: C20, customer: C1001, turns: ["What's the minimum due on my card?"], q: "And what if I pay only that?", numbers: [1535], words: []}
+  - {id: C21, customer: C1001, q: "How much did I spend on electronics on my card last month?", numbers: [24999], words: []}
+  - {id: C22, customer: C1001, q: "What's the interest rate on my credit card?", numbers: [3.75], words: ["month"]}
+  - {id: C23, customer: C1001, q: "What's my card's statement balance and when do I need to pay?", numbers: [43086], words: ["November|Nov"]}
+  - {id: C24, customer: C1002, q: "What's the minimum due on my credit card?", words: ["don't have|do not have|no credit card|no card|not have|any credit card"]}
+  - {id: C25, customer: C1001, turns: ["What's my next EMI?"], q: "And how much is due on my card?", numbers: [43086], words: []}
+  # Policy questions answered by retrieval (RAG)
+  - {id: C26, customer: C1001, q: "Can I change my credit card statement date?", words: ["KB-C-01"]}
+  - {id: C27, customer: C1001, q: "I want to close my credit card. How long will it take?", words: ["KB-C-03", "7 working days|seven working days"]}
+  - {id: C28, customer: C1001, q: "Someone used my card without permission yesterday. Am I liable?", words: ["KB-C-05", "zero|no liability|not liable|₹0|rs 0"]}
+  - {id: C29, customer: C1001, q: "How much is a reward point worth?", words: ["KB-C-06"], numbers: [25]}
+  # One message about both a loan and a card: the planner gets both packs' tools
+  - {id: C30, customer: C1001, q: "What's my next EMI and how much is due on my credit card?", numbers: [6787, 2154], words: []}
+  - {id: C31, customer: C1001, q: "Did any of my loan EMIs fail recently, and is there anything odd on my card bill?", numbers: [500, 1299], words: ["duplicate|twice|two identical|charged two"]}
+  - {id: C32, customer: C1001, q: "Can I prepay ₹50,000 on L-1042 without a charge, and what is the annual fee on my credit card?", numbers: [2999], words: ["no charge|without a charge|no prepayment charge|free of charge|not charged|no penalty"]}

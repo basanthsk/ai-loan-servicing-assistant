@@ -1,0 +1,41 @@
+# Policy KB: clauses for credit cards (synthetic product terms for the demo).
+pack: credit_cards
+clauses:
+  - id: CC-2.1
+    title: Minimum amount due
+    text: >-
+      The minimum amount due is 5% of the statement balance, subject to a minimum of
+      Rs 200 (or the full balance if it is lower). Paying at least the minimum by the due
+      date avoids a late payment fee.
+    source: synthetic product terms
+
+  - id: CC-3.2
+    title: Annual fee and waiver
+    text: >-
+      The annual membership fee of Rs 2,999 plus GST is charged on the card anniversary.
+      It is waived for the next year if eligible spends in the card year reach Rs 2,00,000.
+    source: synthetic product terms
+
+  - id: CC-4.1
+    title: Interest-free period and revolving credit
+    text: >-
+      Purchases are interest-free until the due date if the full statement balance is paid.
+      If less than the full balance is paid, interest of 3.75% a month (45% a year) applies
+      to the unpaid balance and to new purchases from their transaction date, plus GST on
+      the interest.
+    source: synthetic product terms
+
+  - id: CC-5.1
+    title: Disputing a card transaction
+    text: >-
+      A cardholder can dispute a transaction within 60 days of the transaction date, for
+      example a duplicate or unrecognised charge. The amount is credited provisionally
+      while the dispute is investigated, and resolved within 7 working days.
+    source: synthetic product terms
+
+  - id: CC-6.1
+    title: Blocking a card
+    text: >-
+      A lost, stolen or compromised card can be blocked at any time, with immediate
+      effect. Blocking does not cancel the account; a replacement card can be requested.
+    source: synthetic product terms

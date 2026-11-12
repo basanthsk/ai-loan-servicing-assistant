@@ -1,0 +1,48 @@
+{
+  "provider": "Cerebras",
+  "model": "gpt-oss-120b",
+  "run_where": "cloud session",
+  "checks": [
+    {
+      "name": "reachable",
+      "ok": true,
+      "detail": "2 models listed; target found",
+      "ms": 356.07028900005844,
+      "skipped": false
+    },
+    {
+      "name": "chat",
+      "ok": true,
+      "detail": "reply='OK'",
+      "ms": 233.71020000001863,
+      "skipped": false
+    },
+    {
+      "name": "tool call",
+      "ok": true,
+      "detail": "get_loan({\"loan_id\":\"L-1042\"})",
+      "ms": 271.72409499996775,
+      "skipped": false
+    },
+    {
+      "name": "latency",
+      "ok": true,
+      "detail": "time to first token p50 216 ms, p95 536 ms; total p50 218 ms (5/5 runs ok)",
+      "ms": null,
+      "skipped": false
+    }
+  ],
+  "latency": {
+    "runs": 5,
+    "errors": 0,
+    "ttft_ms_p50": 216,
+    "ttft_ms_p95": 536,
+    "total_ms_p50": 218,
+    "total_ms_p95": 548
+  },
+  "notes": [
+    "rate limited 1 time(s) during latency runs (free-tier limit)"
+  ],
+  "ok": true,
+  "timestamp": "2026-11-11 02:49:06 UTC"
+}

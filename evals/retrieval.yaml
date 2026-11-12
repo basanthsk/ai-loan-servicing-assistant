@@ -1,0 +1,50 @@
+# Retrieval evaluation for the policy knowledge base (RAG).
+# Each question is a paraphrase a customer might use, deliberately avoiding the
+# exact words of the passage. `expect` is the passage that answers it; `none`
+# questions are outside the documents and should retrieve nothing.
+loans:
+  - {q: "Can I get my EMI debited on the 10th instead?", expect: KB-L-01}
+  - {q: "I'd like my instalment to come out later in the month", expect: KB-L-01}
+  - {q: "I opened a new salary account, how do I pay EMIs from it?", expect: KB-L-02}
+  - {q: "auto debit failed, can I just pay through UPI?", expect: KB-L-03}
+  - {q: "Do you accept cash for my loan payment?", expect: KB-L-03}
+  - {q: "I need an interest certificate for income tax", expect: KB-L-04}
+  - {q: "send me my account statement for last year", expect: KB-L-04}
+  - {q: "where can I see the APR and all the fees on my loan?", expect: KB-L-05}
+  - {q: "rates went up again, can I keep my EMI and extend the loan instead?", expect: KB-L-06}
+  - {q: "is it possible to move from floating to fixed interest?", expect: KB-L-06}
+  - {q: "do you charge extra interest when I pay late?", expect: KB-L-07}
+  - {q: "will a bounced EMI show up on my CIBIL report?", expect: KB-L-08}
+  - {q: "what paperwork do I get after I finish paying off the loan?", expect: KB-L-09}
+  - {q: "can I borrow more on top of my existing loan?", expect: KB-L-10}
+  - {q: "I lost my job and can't afford the EMI right now", expect: KB-L-10}
+  - {q: "my complaint hasn't been resolved for a month, what now?", expect: KB-L-11}
+  - {q: "how do I approach the banking ombudsman?", expect: KB-L-11}
+  - {q: "someone called asking for my OTP to update my loan, is that you?", expect: KB-L-12}
+  - {q: "is there a penalty if I pay off my floating loan early?", expect: LT-6.1}
+  - {q: "how often is my interest rate revised?", expect: LT-4.2}
+  - {q: "what happens to my tenure if I prepay part of the loan?", expect: LT-6.5}
+  - {q: "how long is a foreclosure letter valid for?", expect: FC-1.1}
+  - {q: "how much do you charge when an EMI bounces?", expect: PAY-2.1}
+  - {q: "my NACH mandate expired", expect: PAY-2.2}
+  - {q: "how many days do I have to dispute a charge?", expect: DSP-1.1}
+  - {q: "what's a good recipe for biryani?", none: true}
+  - {q: "who won the cricket match yesterday?", none: true}
+credit_cards:
+  - {q: "I want my statement to be generated on a different date", expect: KB-C-01}
+  - {q: "if I pay two days after the due date, is there a late fee?", expect: KB-C-02}
+  - {q: "please cancel my credit card permanently", expect: KB-C-03}
+  - {q: "you increased my limit without asking me", expect: KB-C-04}
+  - {q: "someone used my card fraudulently, am I liable for it?", expect: KB-C-05}
+  - {q: "how much is one reward point worth?", expect: KB-C-06}
+  - {q: "can I split my laptop purchase into monthly instalments?", expect: KB-C-07}
+  - {q: "how do I turn off international transactions?", expect: KB-C-08}
+  - {q: "what are the fees for withdrawing cash at an ATM with my card?", expect: KB-C-09}
+  - {q: "my card complaint is unresolved after 30 days", expect: KB-C-10}
+  - {q: "how is the minimum payment calculated?", expect: CC-2.1}
+  - {q: "can the yearly membership fee be waived?", expect: CC-3.2}
+  - {q: "what interest do I pay if I don't clear the full bill?", expect: CC-4.1}
+  - {q: "there's a charge I don't recognise on my card", expect: CC-5.1}
+  - {q: "I lost my wallet with my card in it", expect: CC-6.1}
+  - {q: "what's the weather in Mumbai today?", none: true}
+  - {q: "recommend a good movie to watch", none: true}

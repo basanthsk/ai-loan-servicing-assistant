@@ -1,0 +1,18 @@
+{
+  "provider": "Fallback chain",
+  "model": "fake-429 -> groq -> cerebras -> openrouter",
+  "run_where": "cloud session",
+  "checks": [
+    {
+      "name": "fails over on 429",
+      "ok": true,
+      "detail": "answered by groq; attempts: fake-429 RateLimitError (25 ms), groq ok (409 ms)",
+      "ms": null,
+      "skipped": false
+    }
+  ],
+  "latency": {},
+  "notes": [],
+  "ok": true,
+  "timestamp": "2026-11-11 02:49:22 UTC"
+}

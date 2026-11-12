@@ -1,0 +1,73 @@
+title: Credit card servicing
+description: Credit cards - bills, minimum due, fees, interest, disputes, blocking.
+
+tools:
+  - name: get_card_details
+    description: Card details - interest rate (monthly_interest_pct), credit limit, available credit, annual fee, status.
+    kind: http
+    system: cards
+    path: /cards/{card_id}
+    params:
+      card_id: {type: string, description: "e.g. CC-7781"}
+    required: [card_id]
+    fields: [card_id, product, last4, status, credit_limit, available_credit, monthly_interest_pct,
+             annual_fee, statement_balance, minimum_due, due_date]
+    cache_ttl_s: 60
+    status: Looking up your card
+
+  - name: get_card_transactions
+    description: Transactions on a card, optionally for one statement.
+    kind: http
+    system: cards
+    path: /cards/{card_id}/transactions
+    params:
+      card_id: {type: string, description: "e.g. CC-7781"}
+      statement_id: {type: string}
+    required: [card_id]
+    fields: [txn_id, txn_date, merchant, category, amount, type, statement_id]
+    cache_ttl_s: 60
+    status: Looking at your card transactions
+
+  - name: explain_bill_change
+    description: Why the latest card bill differs from the previous one, incl. possible duplicate charges.
+    kind: python
+    function: explain_bill_change
+    params:
+      card_id: {type: string}
+    status: Comparing your last two card statements
+
+  - name: card_minimum_due
+    description: Card statement balance, minimum due and due date.
+    kind: python
+    function: card_minimum_due
+    params:
+      card_id: {type: string}
+    status: Checking your card bill
+
+  - name: simulate_minimum_payment
+    description: Interest cost if the customer pays only the minimum (or a given amount) on the card.
+    kind: python
+    function: simulate_minimum_payment
+    params:
+      card_id: {type: string}
+      amount: {type: number, description: "rupees; default the minimum due"}
+    status: Calculating the interest
+
+  - name: check_annual_fee
+    description: Annual fee, the spend needed for a waiver, and whether it applies.
+    kind: python
+    function: check_annual_fee
+    params:
+      card_id: {type: string}
+    status: Checking the annual fee terms
+
+  - name: search_policy
+    description: Search the credit card policy documents and FAQ for rules, procedures, charges and customer rights not covered by the other tools (e.g. billing cycle, card closure, limits, rewards, fraud liability, EMI conversion, complaints). Returns passages with ids to cite.
+    kind: http
+    system: policy
+    path: /search/credit_cards
+    params:
+      query: {type: string, description: "the customer's question, rephrased as a standalone question"}
+    required: [query]
+    cache_ttl_s: 300
+    status: Searching the card policies

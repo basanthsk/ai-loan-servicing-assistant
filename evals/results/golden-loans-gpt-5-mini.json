@@ -1,0 +1,716 @@
+{
+ "pack": "loans",
+ "run_at": "2026-11-11 16:18 UTC",
+ "passed": 29,
+ "total": 37,
+ "results": [
+  {
+   "id": "L01",
+   "customer": "C1001",
+   "question": "What's my next EMI?",
+   "answer": "You have 2 EMIs coming up: ₹12,926 on L-1042 due 5 December 2026; ₹6,787 on L-1043 due 20 November 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_next_emi",
+   "numbers_verified": true,
+   "tools": [
+    "next_emi"
+   ],
+   "total_ms": 1811,
+   "first_words_ms": 1810.6,
+   "first_status_ms": 1810.4,
+   "providers": []
+  },
+  {
+   "id": "L02",
+   "customer": "C1001",
+   "question": "Why did my EMI go up this month?",
+   "answer": "Your floating-rate loan EMI rose from ₹12,828 (due 05‑Oct‑2026) to ₹12,926 (due 05‑Nov‑2026) because your interest rate was reset from 10.25% to 10.75% after the RBI repo rate moved from 6.0% to 6.5%. The EMI was recalculated on the outstanding principal for the remaining tenure and the tenure stayed the same [LT-4.2]. The reset is per the floating-rate rule: rate = repo + fixed spread, and EMIs are recalculated when the benchmark changes [LT-4.2]. If you want, I can show options to lower your EMI (longer tenure) or shorten your tenure by running a prepayment simulation.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_emi_change",
+   "numbers_verified": true,
+   "tools": [
+    "explain_emi_change"
+   ],
+   "total_ms": 5954,
+   "first_words_ms": 4485.4,
+   "first_status_ms": 3000.6,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L03",
+   "customer": "C1001",
+   "question": "Why was my previous EMI different from my current one?",
+   "answer": "Your previous EMI was ₹12,828 (due 05‑Oct‑2026) and your current EMI is ₹12,926 (due 05‑Nov‑2026) — an increase of ₹98. The loan rate rose from 10.25% to 10.75% because the RBI repo rate moved from 6.0% to 6.5%, and the EMI was recalculated on the remaining principal (reset effective 15‑Oct‑2026). The tenure stayed the same; only the EMI changed. This is a standard floating‑rate reset (repo rate + fixed spread) as described in clause LT‑4.2 [LT-4.2].",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_emi_change",
+   "numbers_verified": true,
+   "tools": [
+    "explain_emi_change"
+   ],
+   "total_ms": 5171,
+   "first_words_ms": 3700.8,
+   "first_status_ms": 2439.5,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L04",
+   "customer": "C1001",
+   "question": "If I make a ₹50,000 prepayment today on my floating loan, how much interest would I save?",
+   "answer": "If you prepay ₹50,000 today on loan L-1042, your outstanding falls from ₹4,05,543 to ₹3,55,543 and there is no prepayment charge [LT-6.1].  \nYou can keep your EMI at ₹12,926 and finish 5 months earlier, saving ₹18,215 in interest, or keep the tenure and reduce the EMI to ₹11,332, saving ₹8,965 in interest.  \nWould you like me to submit the part-prepayment request for ₹50,000 (default: reduce tenure)?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 5346,
+   "first_words_ms": 4166.1,
+   "first_status_ms": 3069.4,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L05",
+   "customer": "C1001",
+   "question": "What happens if I prepay ₹50,000 on L-1042?",
+   "answer": "If you prepay ₹50,000 on L-1042 today, your outstanding falls from ₹4,05,543 to ₹3,55,543 and there is no prepayment charge (charge ₹0) [LT-6.1]. You can either keep your EMI ₹12,926 and finish 5 months earlier, saving ₹18,215 in interest, or keep the same tenure and your EMI would fall to ₹11,332 (a reduction of ₹1,594), saving ₹8,965 in interest. I can submit the part‑prepayment request for ₹50,000 now if you’d like.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 6991,
+   "first_words_ms": 5564.5,
+   "first_status_ms": 3379.8,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L06",
+   "customer": "C1001",
+   "question": "If I prepay 50,000 on L-1042 and keep the same tenure, what would my new EMI be?",
+   "answer": "If you prepay ₹50,000 on L-1042 today and keep the same tenure, your new EMI would be ₹11,332 (down from ₹12,926), saving ₹8,965 in interest [see option_keep_tenure].  \nThere is no prepayment charge for this floating-rate personal loan (clause LT-6.1) [LT-6.1].  \nIf you’d like, I can raise the part-prepayment request for ₹50,000—shall I proceed?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 6056,
+   "first_words_ms": 4965.3,
+   "first_status_ms": 2861.9,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L07",
+   "customer": "C1001",
+   "question": "Would paying ₹20,000 extra on L-1042 reduce my tenure?",
+   "answer": "Yes — a ₹20,000 part-prepayment today on L-1042 would shorten your loan by 2 months (remaining months 37 → 35) and save ₹7,670 in interest if you keep the EMI the same [LT-6.5]. You can instead keep the same tenure and reduce your EMI to ₹12,288 (a drop of ₹637) and save ₹3,586 in interest [LT-6.5]. There’s no prepayment charge for this floating-rate individual loan (charge ₹0) [LT-6.1]. I can raise the part-prepayment request for ₹20,000 now if you’d like.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 5669,
+   "first_words_ms": 4262.4,
+   "first_status_ms": 2475.5,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L08",
+   "customer": "C1001",
+   "question": "Am I eligible for foreclosure without a penalty on my floating rate loan?",
+   "answer": "Yes — your floating-rate loan can be foreclosed without any penalty [LT-6.1]. The foreclosure quote today is ₹4,06,259 (outstanding ₹4,05,543 plus accrued interest ₹717, with charge ₹0) [LT-6.1]. If you’d like, I can request a formal foreclosure statement (valid 7 days) for you.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_foreclosure",
+   "numbers_verified": true,
+   "tools": [
+    "check_foreclosure"
+   ],
+   "total_ms": 4804,
+   "first_words_ms": 3984.5,
+   "first_status_ms": 2456.7,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L09",
+   "customer": "C1001",
+   "question": "Can I close my fixed rate loan L-1043 without a penalty?",
+   "answer": "You cannot close L-1043 without a penalty — it’s a fixed-rate loan still inside the 12-month lock-in so a 4% prepayment charge applies [LT-6.3]. The outstanding is ₹1,76,799, accrued interest ₹1,439 and the prepayment charge would be ₹7,072, so the total payable today would be ₹1,85,309. This loan is 5 months since disbursal and the 4% rule is from clause LT-6.3. I can request a formal foreclosure statement for L-1043 if you’d like (I will ask you to confirm before sending).",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_foreclosure",
+   "numbers_verified": true,
+   "tools": [
+    "check_foreclosure"
+   ],
+   "total_ms": 6725,
+   "first_words_ms": 5500.8,
+   "first_status_ms": 3274.5,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L10",
+   "customer": "C1001",
+   "question": "Is there a prepayment charge on L-1043 if I pay 50,000 now?",
+   "answer": "Yes — a 4% prepayment charge applies because this fixed-rate loan is inside its 12‑month lock-in, so the charge is ₹2,000 [LT-6.3].  \nYou have two options: (1) keep your EMI at ₹6,787 and finish 9 months earlier, saving ₹17,251 in interest; (2) keep the remaining tenure and reduce your EMI to ₹4,868, saving ₹9,502 in interest.  \nTell me if you’d like me to submit the ₹50,000 part‑prepayment request (I will ask you to confirm before sending).",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 6980,
+   "first_words_ms": 5743.2,
+   "first_status_ms": 3265.1,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L11",
+   "customer": "C1001",
+   "question": "Show me the payments that failed in the last six months and explain what happened.",
+   "answer": "Total failed debits in the last six months: 3, total bounce charges ₹1,000.  \n- P000018F (L-1042) due 2026-06-05 amount ₹12,828: failed for insufficient funds, paid on 2026-06-09 by UPI, 4 days late, bounce charge ₹500 (bounce charge applies for insufficient funds) [PAY-2.1].  \n- P000020F (L-1042) due 2026-08-05 amount ₹12,828: failed because the NACH mandate had expired, paid on 2026-08-12 by Net banking, 7 days late, bounce charge ₹500 (expired mandate requires new mandate; EMIs can be paid by UPI/net banking) [PAY-2.2][PAY-2.1].  \n- P000021F (L-1042) due 2026-09-05 amount ₹12,828: failed due to a bank technical error, paid on 2026-09-06 by NACH retry, 1 day late, no bounce charge (no charge for bank-side technical errors) [PAY-2.1].  \nIf you want, I can raise disputes for the two ₹500 charges that can be disputed — tell me which payment_id(s) and I will submit the dispute.",
+   "passed": false,
+   "problems": [
+    "missing word 'June|Jun'",
+    "missing word 'August|Aug'",
+    "missing word 'September|Sep'"
+   ],
+   "intent": "loan_payments",
+   "numbers_verified": true,
+   "tools": [
+    "explain_failed_payments"
+   ],
+   "total_ms": 10426,
+   "first_words_ms": 7425.9,
+   "first_status_ms": 4196.9,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L12",
+   "customer": "C1001",
+   "question": "How much did I pay in bounce charges in the last 6 months?",
+   "answer": "I don’t see any bounce/returned-payment charges on your card ending 4417 in the last six months. If you’d like, I can run a wider search or check specific statements—tell me which and I’ll fetch them.",
+   "passed": false,
+   "problems": [
+    "missing number 1000"
+   ],
+   "intent": "card_fees",
+   "numbers_verified": true,
+   "tools": [
+    "explain_failed_payments",
+    "get_card_transactions"
+   ],
+   "total_ms": 8803,
+   "first_words_ms": 8334.9,
+   "first_status_ms": 5131.8,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L13",
+   "customer": "C1001",
+   "question": "Why did my September EMI debit fail?",
+   "answer": "Which loan is this about — L-1042 (floating-rate, EMI ₹12,926) or L-1043 (fixed-rate, EMI ₹6,787)? I can check why the September EMI debit failed and explain what happened (and offer to raise a dispute) once you tell me which loan.",
+   "passed": false,
+   "problems": [
+    "missing word 'technical|bank'"
+   ],
+   "intent": "loan_payments",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 3458,
+   "first_words_ms": 2685.3,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L14",
+   "customer": "C1001",
+   "question": "Why was there a charge on my August EMI?",
+   "answer": "Do you mean the August EMI on L-1042 (floating) or L-1043 (fixed)? I can check failed EMI debits for that loan and explain what happened, how it was resolved, and any charge. If you think the charge is wrong I can raise a dispute for you [DSP-1.1].",
+   "passed": false,
+   "problems": [
+    "missing number 500",
+    "missing word 'mandate'"
+   ],
+   "intent": "loan_dispute",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 4580,
+   "first_words_ms": 3777.6,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L15",
+   "customer": "C1001",
+   "question": "Based on my current loan and applicable terms, what are my options?",
+   "answer": "Which loan do you mean — L-1042 (floating) or L-1043 (fixed)? I can check these options for that loan: simulate a part-prepayment (showing EMI vs tenure outcomes), check foreclosure payoff and any charges, send a repayment statement, or explain recent EMI changes or failed payments. Tell me which loan and which action(s) you want me to run.",
+   "passed": false,
+   "problems": [
+    "missing number 406259"
+   ],
+   "intent": "loan_options",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 3801,
+   "first_words_ms": 2940.3,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L16",
+   "customer": "C1001",
+   "question": "What is the interest rate on L-1042 now?",
+   "answer": "Your L-1042 (floating-rate personal loan) current interest rate is 10.75% per annum. If you’d like, I can check the next rate reset or upcoming EMI details for this loan.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_general",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 3109,
+   "first_words_ms": 3109.0,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L17",
+   "customer": "C1001",
+   "question": "How many EMIs are left on L-1042?",
+   "answer": "You have 2 EMIs coming up: ₹12,926 on L-1042 due 5 December 2026; ₹6,787 on L-1043 due 20 November 2026.",
+   "passed": false,
+   "problems": [
+    "missing number 37"
+   ],
+   "intent": "loan_next_emi",
+   "numbers_verified": true,
+   "tools": [
+    "get_loan_details",
+    "next_emi"
+   ],
+   "total_ms": 3005,
+   "first_words_ms": 3004.8,
+   "first_status_ms": 3004.7,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L18",
+   "customer": "C1001",
+   "question": "When is my fixed rate loan's next EMI due?",
+   "answer": "You have 2 EMIs coming up: ₹12,926 on L-1042 due 5 December 2026; ₹6,787 on L-1043 due 20 November 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_next_emi",
+   "numbers_verified": true,
+   "tools": [
+    "next_emi"
+   ],
+   "total_ms": 2636,
+   "first_words_ms": 2635.5,
+   "first_status_ms": 2635.4,
+   "providers": []
+  },
+  {
+   "id": "L19",
+   "customer": "C1001",
+   "question": "Please raise a dispute about the June bounce charge, the money was in my account.",
+   "answer": "I checked transactions for your card ending 4417 but I don’t see a June “bounce” charge listed. Please tell me the transaction ID (txn_id) or the exact date and amount of the June charge so I can raise a dispute for you — I can only file a dispute when you give the txn_id [CC-5.1].",
+   "passed": false,
+   "problems": [
+    "no action proposed (expected raise_payment_dispute)"
+   ],
+   "intent": "card_dispute",
+   "numbers_verified": true,
+   "tools": [
+    "get_card_transactions"
+   ],
+   "total_ms": 6959,
+   "first_words_ms": 6312.4,
+   "first_status_ms": 3677.3,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L20",
+   "customer": "C1001",
+   "question": "Email me the repayment statement for L-1042.",
+   "answer": "I will send the repayment statement for loan L-1042 to your registered email address—please confirm you want me to proceed.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_statement",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 2835,
+   "first_words_ms": 2509.8,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L21",
+   "customer": "C1001",
+   "question": "I want to prepay 50,000 on L-1042, please submit it.",
+   "answer": "I will submit a ₹50,000 part-prepayment on loan L-1042 keeping your EMI the same and shortening the tenure; prepayment charge ₹0 [LT-6.1]. Please confirm you want me to proceed.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 6700,
+   "first_words_ms": 6129.4,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L22",
+   "customer": "C1001",
+   "question": "What if I prepay ₹20,000 on it?",
+   "answer": "If you pay ₹20,000 today your outstanding would drop from ₹4,05,543 to ₹3,85,543 and there is no prepayment charge (₹0) [LT-6.1].  \nYou can either keep the EMI at ₹12,926 and finish 2 months earlier, saving ₹7,670 in interest, or keep the same tenure and reduce the EMI to ₹12,288 (a ₹637 drop) and save ₹3,586 in interest.  \nWould you like me to submit the part-prepayment of ₹20,000 now?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 5170,
+   "first_words_ms": 4036.9,
+   "first_status_ms": 2820.0,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L23",
+   "customer": "C1001",
+   "question": "Okay, now tell me whether paying ₹20,000 extra would reduce my tenure.",
+   "answer": "For loan L-1042, a ₹20,000 part-prepayment today would reduce your outstanding from ₹4,05,543 to ₹3,85,543.  \nOption 1 (keep EMI): keep EMI at ₹12,926, finish 2 months earlier and save ₹7,670 interest.  \nOption 2 (keep tenure): keep the same tenure and your EMI would fall to ₹12,288, saving ₹3,586 interest.  \nThere is no prepayment charge (floating-rate individual loan) [LT-6.1].  \n\nIf you’d like, I can submit the ₹20,000 part-prepayment request for L-1042 now.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 9611,
+   "first_words_ms": 6752.8,
+   "first_status_ms": 3088.9,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L24",
+   "customer": "C1002",
+   "question": "What's my next EMI?",
+   "answer": "Your next EMI on loan L-2077 is ₹20,509, due on 10 December 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_next_emi",
+   "numbers_verified": true,
+   "tools": [
+    "next_emi",
+    "next_emi"
+   ],
+   "total_ms": 2427,
+   "first_words_ms": 2426.5,
+   "first_status_ms": 2426.4,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L25",
+   "customer": "C1002",
+   "question": "Why did my EMI increase?",
+   "answer": "Your EMI rose because the RBI repo rate was increased by 50 bps (6.0% → 6.5%), which raised your loan rate from 10.25% to 10.75% and caused the EMI to be recalculated [LT-4.2]. Your EMI changed from ₹20,392 (due 2026-10-10) to ₹20,509 (due 2026-11-10), an increase of ₹118; the tenure stayed the same. If you want, I can next show part-prepayment or tenure-change options to reduce the EMI or months left.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_emi_change",
+   "numbers_verified": true,
+   "tools": [
+    "explain_emi_change"
+   ],
+   "total_ms": 5893,
+   "first_words_ms": 4671.4,
+   "first_status_ms": 2201.0,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L26",
+   "customer": "C1002",
+   "question": "What happens if I prepay ₹50,000?",
+   "answer": "If you prepay ₹50,000 today your outstanding would drop from ₹4,89,936 to ₹4,39,936 and there is no prepayment charge [LT-6.1]. You can either keep the EMI at ₹20,509 and finish 3 months earlier, saving ₹13,020 interest, or keep the tenure and reduce the EMI to ₹18,416, saving ₹6,513 interest. If you’d like to proceed I can raise the part-prepayment request for ₹50,000.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 6093,
+   "first_words_ms": 5018.0,
+   "first_status_ms": 3726.0,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L27",
+   "customer": "C1002",
+   "question": "Did any of my payments fail recently?",
+   "answer": "No — none of your payments failed in the period 2026-05-12 to 2026-11-11; failed_count = 0 and total bounce charges = ₹0. The failed_payments list is empty. If you think a specific debit was wrongly processed or a charge is incorrect, you can raise a dispute (I can start that for you) [DSP-1.1].",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_payments",
+   "numbers_verified": true,
+   "tools": [
+    "explain_failed_payments"
+   ],
+   "total_ms": 6047,
+   "first_words_ms": 5201.6,
+   "first_status_ms": 4310.2,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L28",
+   "customer": "C1003",
+   "question": "Can I foreclose my loan without a penalty?",
+   "answer": "Your loan L-3015 is a fixed-rate personal loan, so a 2% foreclosure/prepayment charge applies per LT-6.3. The payoff today would be ₹1,95,411, which includes the outstanding principal ₹1,89,824, accrued interest ₹1,790 and a charge of ₹3,796 (charge = 2%) [LT-6.3]. (For context: floating-rate personal loans to individuals have no prepayment charge [LT-6.1].) If you’d like, I can request a formal foreclosure statement for L-3015 now (it will be valid for 7 days) [FC-1.1].",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_foreclosure",
+   "numbers_verified": true,
+   "tools": [
+    "check_foreclosure"
+   ],
+   "total_ms": 8509,
+   "first_words_ms": 6578.8,
+   "first_status_ms": 2586.1,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L29",
+   "customer": "C1003",
+   "question": "If I prepay 50,000, is there a charge?",
+   "answer": "Yes — a 2% prepayment charge applies because this is a fixed‑rate loan past its lock‑in [LT-6.3]. For a ₹50,000 prepayment the charge would be ₹1,000 and outstanding would fall from ₹1,89,824 to ₹1,39,824. By default the EMI stays ₹9,346 and your tenure shortens by 6 months (interest saved ≈ ₹11,869); alternatively you can keep the tenure and your EMI would drop to ₹6,884 (interest saved ≈ ₹6,622) [LT-6.5]. Would you like me to raise the part‑prepayment request for ₹50,000?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_prepayment",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_prepayment"
+   ],
+   "total_ms": 6262,
+   "first_words_ms": 4868.5,
+   "first_status_ms": 3754.4,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L30",
+   "customer": "C1003",
+   "question": "Why did my EMI change?",
+   "answer": "Your EMI did not change. Previous EMI (15‑Sep‑2026): ₹9,346 at 12.75%; Current EMI (15‑Oct‑2026): ₹9,346 at 12.75%; difference ₹0. The loan tenure stayed the same. Would you like me to check the upcoming schedule or recent payment history next?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_emi_change",
+   "numbers_verified": true,
+   "tools": [
+    "explain_emi_change"
+   ],
+   "total_ms": 5770,
+   "first_words_ms": 5106.9,
+   "first_status_ms": 2279.9,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L31",
+   "customer": "C1001",
+   "question": "What's the weather in Mumbai today?",
+   "answer": "I can only help with your accounts with us, such as loans and cards. Is there something about those I can help with?",
+   "passed": true,
+   "problems": [],
+   "intent": "out_of_scope",
+   "numbers_verified": true,
+   "tools": [
+    "scope_check"
+   ],
+   "total_ms": 1862,
+   "first_words_ms": 1861.9,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L32",
+   "customer": "C1001",
+   "question": "Can I move my EMI date to the 10th of the month?",
+   "answer": "Yes — you can move your EMI date to the 10th once a year by raising a service request [KB-L-01]. The change is applied from the second EMI after the request, and interest is adjusted on the first EMI on the new date; any EMI already presented to the bank won’t change [KB-L-01]. Would you like me to raise the request to move your EMI date to the 10th?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_policy",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 5245,
+   "first_words_ms": 4244.7,
+   "first_status_ms": 3407.2,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L33",
+   "customer": "C1001",
+   "question": "I opened a new bank account. How do I get my EMIs debited from it?",
+   "answer": "You can register a new NACH e-mandate from our app or website using netbanking or the new account’s debit card; mandate activation takes up to 5 working days, so keep the old account funded until the new mandate shows active [KB-L-02]. If the mandate isn’t active yet (or a debit fails), pay the EMI manually via the app’s “Pay now” (UPI, netbanking or debit card) to avoid retries/failures [KB-L-03]. I can start the e-mandate registration for your new account now if you’d like—shall I proceed?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_payments",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 6519,
+   "first_words_ms": 5108.7,
+   "first_status_ms": 3392.4,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L34",
+   "customer": "C1001",
+   "question": "My complaint hasn't been resolved for over a month. What can I do?",
+   "answer": "I’m sorry this is taking so long — if your card complaint hasn’t been resolved within 30 days (or you’re unhappy with the reply) you can escalate to the bank’s Principal Nodal Officer and, if still unresolved, complain to the RBI Ombudsman via cms.rbi.org.in [KB-C-10]. I can escalate this for you to our Principal Nodal Officer — would you like me to start that escalation now?",
+   "passed": false,
+   "problems": [
+    "missing word 'KB-L-11'"
+   ],
+   "intent": "card_policy",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy",
+    "search_policy"
+   ],
+   "total_ms": 8766,
+   "first_words_ms": 7767.9,
+   "first_status_ms": 5016.3,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L35",
+   "customer": "C1001",
+   "question": "Will a late EMI affect my credit score?",
+   "answer": "Yes — repayments are reported to credit bureaus every month, and an EMI paid late is reported as overdue for the days it was late even if you pay it later in the same month [KB-L-08]. If an auto-debit failed but you paid within the lender’s retry window before the reporting date, it will not be reported as overdue [KB-L-08]. If the debit failed due to insufficient funds there may also be a bounce charge as described in the failed-payment rules [PAY-2.1]. If you think a late/failed payment was reported or charged incorrectly, I can help raise a dispute for you to correct bureau data or charges [DSP-1.1].",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_policy",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 6027,
+   "first_words_ms": 4628.5,
+   "first_status_ms": 2746.8,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L36",
+   "customer": "C1001",
+   "question": "When rates go up, can I extend my tenure instead of paying a higher EMI?",
+   "answer": "Yes — when a floating-rate loan is reset you can ask to extend the tenure instead of increasing your EMI, subject to the product’s maximum tenure limits [KB-L-06]. By default we recalculate the EMI for the remaining tenure, but the borrower may request tenure extension at the reset and we notify you of every reset by SMS/email [LT-4.2][KB-L-06]. You may also have the one-time option to switch to a fixed rate at reset; check the KFS for any switch fee [KB-L-06]. If you want, I can check your floating loan’s next reset and show the effect of extending tenure — shall I do that?",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_options",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 7758,
+   "first_words_ms": 6352.1,
+   "first_status_ms": 2663.8,
+   "providers": [
+    "openai"
+   ]
+  },
+  {
+   "id": "L37",
+   "customer": "C1001",
+   "question": "Do you offer a gold loan against jewellery?",
+   "answer": "Sorry—I can only help with your accounts and our personal loan products, and we don't offer gold loans through this service. If you want, I can check options or details for your personal loans (EMI, prepayment, foreclosure) instead.",
+   "passed": true,
+   "problems": [],
+   "intent": "loan_options",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 2954,
+   "first_words_ms": 2953.9,
+   "first_status_ms": null,
+   "providers": [
+    "openai"
+   ]
+  }
+ ]
+}

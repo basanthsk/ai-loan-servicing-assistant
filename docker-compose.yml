@@ -1,0 +1,65 @@
+# Optional container setup. The simplest way to run the demo is `poetry run poe up`.
+# Note: written for portability but not run in CI; the tested path is `poe up`.
+#
+#   docker compose up --build
+#   open http://localhost:8000
+#
+# API keys come from your .env file (never baked into the image).
+
+x-app: &app
+  build: .
+  env_file: .env
+  environment:
+    DB_PATH: /data/bank.db
+    CRM_URL: http://crm:8101
+    LOANS_URL: http://loans:8102
+    PAYMENTS_URL: http://payments:8103
+    POLICY_URL: http://policy:8104
+    SERVICEOPS_URL: http://serviceops:8105
+    CARDS_URL: http://cards:8106
+    REDIS_URL: redis://redis:6379/0
+  volumes:
+    - bankdata:/data
+  depends_on:
+    seed:
+      condition: service_completed_successfully
+
+services:
+  seed:
+    build: .
+    environment:
+      DB_PATH: /data/bank.db
+    volumes:
+      - bankdata:/data
+    command: python data/seed.py
+
+  redis:
+    image: redis:7-alpine
+
+  crm:
+    <<: *app
+    command: uvicorn services.crm:app --host 0.0.0.0 --port 8101
+  loans:
+    <<: *app
+    command: uvicorn services.loans:app --host 0.0.0.0 --port 8102
+  payments:
+    <<: *app
+    command: uvicorn services.payments:app --host 0.0.0.0 --port 8103
+  policy:
+    <<: *app
+    command: uvicorn services.policy:app --host 0.0.0.0 --port 8104
+  serviceops:
+    <<: *app
+    command: uvicorn services.serviceops:app --host 0.0.0.0 --port 8105
+  cards:
+    <<: *app
+    command: uvicorn services.cards:app --host 0.0.0.0 --port 8106
+
+  gateway:
+    <<: *app
+    command: uvicorn gateway.app:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+
+volumes:
+  bankdata:

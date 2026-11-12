@@ -1,0 +1,26 @@
+# Simulated behaviour of each mock system. Change at run time with
+# PUT http://127.0.0.1:<port>/admin/faults  (the web app's fault switch does this).
+crm:
+  latency_ms: 80
+  jitter_ms: 20
+  failure_rate: 0.0
+loans:
+  latency_ms: 250
+  jitter_ms: 60
+  failure_rate: 0.02
+payments:
+  latency_ms: 600
+  jitter_ms: 150
+  failure_rate: 0.05
+policy:
+  latency_ms: 150
+  jitter_ms: 40
+  failure_rate: 0.0
+serviceops:
+  latency_ms: 900
+  jitter_ms: 200
+  failure_rate: 0.03
+cards:
+  latency_ms: 300
+  jitter_ms: 80
+  failure_rate: 0.02

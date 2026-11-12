@@ -1,0 +1,412 @@
+{
+ "run_at": "2026-11-11 20:10 UTC",
+ "results": [
+  {
+   "backend": "keyword",
+   "cases": 118,
+   "answered": 13,
+   "accuracy_all": 0.11,
+   "accuracy_when_answered": 1.0,
+   "per_kind": {
+    "intent": "0/79",
+    "confirmation": "5/25",
+    "barge_in": "8/14"
+   },
+   "latency_ms_p50": 0,
+   "latency_ms_p95": 0,
+   "symmetry": null,
+   "errors": 0,
+   "wrong": []
+  },
+  {
+   "backend": "keyword+llm:groq-fast",
+   "cases": 108,
+   "answered": 103,
+   "accuracy_all": 0.861,
+   "accuracy_when_answered": 0.903,
+   "per_kind": {
+    "intent": "57/69",
+    "confirmation": "22/25",
+    "barge_in": "14/14"
+   },
+   "latency_ms_p50": 2982,
+   "latency_ms_p95": 5868,
+   "symmetry": "31/31",
+   "errors": 5,
+   "wrong": [
+    {
+     "text": "I want to pay off the whole loan now",
+     "expected": "loan_foreclosure",
+     "got": "loan_prepayment"
+    },
+    {
+     "text": "The June charge is wrong, please raise a dispute",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Raise a complaint about the bounce fee",
+     "expected": "loan_dispute",
+     "got": "card_fees"
+    },
+    {
+     "text": "That 500 rupee charge was not my fault, reverse it",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "What's the status of my dispute?",
+     "expected": "loan_requests",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Any update on my complaint?",
+     "expected": "loan_requests",
+     "got": "out_of_scope"
+    },
+    {
+     "text": "Was I charged twice on my card?",
+     "expected": "card_transactions",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Hold on, which loan is this for?",
+     "expected": "changed_mind",
+     "got": "unclear"
+    },
+    {
+     "text": "Actually check my last payment first",
+     "expected": "changed_mind",
+     "got": "unclear"
+    },
+    {
+     "text": "Yes but first tell me the charge",
+     "expected": "changed_mind",
+     "got": "yes"
+    }
+   ]
+  },
+  {
+   "backend": "keyword+llm:cerebras",
+   "cases": 118,
+   "answered": 118,
+   "accuracy_all": 0.924,
+   "accuracy_when_answered": 0.924,
+   "per_kind": {
+    "intent": "72/79",
+    "confirmation": "23/25",
+    "barge_in": "14/14"
+   },
+   "latency_ms_p50": 632,
+   "latency_ms_p95": 826,
+   "symmetry": "30/34",
+   "errors": 0,
+   "wrong": [
+    {
+     "text": "is there a penalty for closing the loan",
+     "expected": "loan_foreclosure",
+     "got": "loan_policy"
+    },
+    {
+     "text": "I want to dispute the bounce charge",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "The June charge is wrong, please raise a dispute",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Raise a complaint about the bounce fee",
+     "expected": "loan_dispute",
+     "got": "loan_payments"
+    },
+    {
+     "text": "That 500 rupee charge was not my fault, reverse it",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "What's the status of my dispute?",
+     "expected": "loan_requests",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Was I charged twice on my card?",
+     "expected": "card_transactions",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Hold on, which loan is this for?",
+     "expected": "changed_mind",
+     "got": "unclear"
+    },
+    {
+     "text": "Yes but first tell me the charge",
+     "expected": "changed_mind",
+     "got": "yes"
+    }
+   ]
+  },
+  {
+   "backend": "keyword+llm:cerebras-qwen",
+   "cases": 183,
+   "answered": 177,
+   "accuracy_all": 0.869,
+   "accuracy_when_answered": 0.898,
+   "per_kind": {
+    "intent": "121/144",
+    "confirmation": "24/25",
+    "barge_in": "14/14"
+   },
+   "latency_ms_p50": 371,
+   "latency_ms_p95": 1123,
+   "symmetry": "52/55",
+   "errors": 6,
+   "wrong": [
+    {
+     "text": "The June charge is wrong, please raise a dispute",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "That 500 rupee charge was not my fault, reverse it",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "What's the status of my dispute?",
+     "expected": "loan_requests",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Yes but first tell me the charge",
+     "expected": "changed_mind",
+     "got": "yes"
+    },
+    {
+     "text": "I think someone is using my card to make transactions I don't remember.",
+     "expected": "card_block",
+     "got": "card_dispute"
+    },
+    {
+     "text": "I think something may have happened that caused a charge to show up twice.",
+     "expected": "card_transactions",
+     "got": "card_dispute"
+    },
+    {
+     "text": "I would appreciate that someone let me know when there is an extra charge for payments. I was checking the app earlier and saying a charge on one of my payments that was additional that no one made me aware of before.",
+     "expected": "card_fees",
+     "got": "loan_payments"
+    },
+    {
+     "text": "What currencies is an exchange rate calculated in?",
+     "expected": "card_policy",
+     "got": "out_of_scope"
+    },
+    {
+     "text": "How do I know if my top up was unsuccessful?",
+     "expected": "out_of_scope",
+     "got": "loan_requests"
+    },
+    {
+     "text": "Why was my top-up unsuccessful?",
+     "expected": "out_of_scope",
+     "got": "loan_requests"
+    },
+    {
+     "text": "My funding to my card didn't go through.",
+     "expected": "out_of_scope",
+     "got": "card_general"
+    },
+    {
+     "text": "Why didn`t my topup go through?",
+     "expected": "out_of_scope",
+     "got": "loan_requests"
+    },
+    {
+     "text": "Why can't I top up?",
+     "expected": "out_of_scope",
+     "got": "loan_policy"
+    },
+    {
+     "text": "I want to check the current balance on my  cards, can I get some help?",
+     "expected": "card_minimum_due",
+     "got": "card_general"
+    },
+    {
+     "text": "I want to know about the curremt balance on my cards, how can I find more information?",
+     "expected": "card_minimum_due",
+     "got": "card_general"
+    }
+   ]
+  },
+  {
+   "backend": "keyword+llm:openai",
+   "cases": 118,
+   "answered": 117,
+   "accuracy_all": 0.898,
+   "accuracy_when_answered": 0.906,
+   "per_kind": {
+    "intent": "70/79",
+    "confirmation": "22/25",
+    "barge_in": "14/14"
+   },
+   "latency_ms_p50": 2545,
+   "latency_ms_p95": 3962,
+   "symmetry": "29/35",
+   "errors": 1,
+   "wrong": [
+    {
+     "text": "I want to dispute the bounce charge",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "The June charge is wrong, please raise a dispute",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Raise a complaint about the bounce fee",
+     "expected": "loan_dispute",
+     "got": "card_fees"
+    },
+    {
+     "text": "That 500 rupee charge was not my fault, reverse it",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "What's the status of my dispute?",
+     "expected": "loan_requests",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Any update on my complaint?",
+     "expected": "loan_requests",
+     "got": "card_general"
+    },
+    {
+     "text": "credit card payment due date?",
+     "expected": "card_minimum_due",
+     "got": "card_policy"
+    },
+    {
+     "text": "Can I move my EMI date to the 10th?",
+     "expected": "loan_policy",
+     "got": "loan_emi_change"
+    },
+    {
+     "text": "I need an interest certificate for my taxes",
+     "expected": "loan_policy",
+     "got": "loan_statement"
+    },
+    {
+     "text": "Hold on, which loan is this for?",
+     "expected": "changed_mind",
+     "got": "unclear"
+    },
+    {
+     "text": "Yes but first tell me the charge",
+     "expected": "changed_mind",
+     "got": "yes"
+    }
+   ]
+  },
+  {
+   "backend": "keyword+jev",
+   "cases": 183,
+   "answered": 183,
+   "accuracy_all": 0.847,
+   "accuracy_when_answered": 0.847,
+   "per_kind": {
+    "intent": "118/144",
+    "confirmation": "23/25",
+    "barge_in": "14/14"
+   },
+   "latency_ms_p50": 144,
+   "latency_ms_p95": 190,
+   "symmetry": "51/56",
+   "errors": 0,
+   "wrong": [
+    {
+     "text": "I want to dispute the bounce charge",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "The June charge is wrong, please raise a dispute",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "Raise a complaint about the bounce fee",
+     "expected": "loan_dispute",
+     "got": "loan_payments"
+    },
+    {
+     "text": "That 500 rupee charge was not my fault, reverse it",
+     "expected": "loan_dispute",
+     "got": "card_dispute"
+    },
+    {
+     "text": "What's the status of my dispute?",
+     "expected": "loan_requests",
+     "got": "card_dispute"
+    },
+    {
+     "text": "No wait, don't do that yet.",
+     "expected": "no",
+     "got": "changed_mind"
+    },
+    {
+     "text": "Yes but first tell me the charge",
+     "expected": "changed_mind",
+     "got": "yes"
+    },
+    {
+     "text": "I think someone else is using my card.  There are transactions I didn't make.",
+     "expected": "card_block",
+     "got": "card_dispute"
+    },
+    {
+     "text": "I would appreciate that someone let me know when there is an extra charge for payments. I was checking the app earlier and saying a charge on one of my payments that was additional that no one made me aware of before.",
+     "expected": "card_fees",
+     "got": "card_transactions"
+    },
+    {
+     "text": "How often do your exchange rates change",
+     "expected": "card_policy",
+     "got": "out_of_scope"
+    },
+    {
+     "text": "What do you base your exchange rates on?",
+     "expected": "card_policy",
+     "got": "out_of_scope"
+    },
+    {
+     "text": "What currencies is an exchange rate calculated in?",
+     "expected": "card_policy",
+     "got": "out_of_scope"
+    },
+    {
+     "text": "How did you come up with your exchange rates?",
+     "expected": "card_policy",
+     "got": "out_of_scope"
+    },
+    {
+     "text": "How do I know if my top up was unsuccessful?",
+     "expected": "out_of_scope",
+     "got": "card_transactions"
+    },
+    {
+     "text": "Why was my top-up unsuccessful?",
+     "expected": "out_of_scope",
+     "got": "card_transactions"
+    }
+   ]
+  }
+ ]
+}

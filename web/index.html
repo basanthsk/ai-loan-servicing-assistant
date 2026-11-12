@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loan Servicing Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <!-- Login -->
+  <section id="login" class="login">
+    <div class="login-card">
+      <div class="brand"><span class="mark">₹</span> Loan Servicing Assistant</div>
+      <p class="muted">Demo login. Pick a customer; the identity check is simulated.</p>
+      <div id="customer-list" class="customer-list"><div class="muted">Loading customers…</div></div>
+      <p id="login-error" class="error" hidden></p>
+    </div>
+  </section>
+
+  <!-- App -->
+  <section id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="mark">₹</span> Loan Servicing Assistant</div>
+      <div class="who"><span id="who-name"></span> <button id="logout" class="link">Log out</button></div>
+    </header>
+
+    <main class="layout">
+      <!-- Conversation -->
+      <section class="chat" aria-label="Conversation">
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="status" class="status" hidden><span class="spinner"></span><span id="status-text"></span></div>
+        <div class="suggestions" id="suggestions"></div>
+        <form id="composer" class="composer" autocomplete="off">
+          <button type="button" id="mic" class="mic" title="Talk to the assistant" aria-pressed="false">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
+          </button>
+          <input id="input" type="text" placeholder="Ask about your EMI, payments, prepayment…" aria-label="Message">
+          <button type="submit" class="send">Send</button>
+        </form>
+        <div id="voice-bar" class="voice-bar" hidden>
+          <span class="dot"></span><span id="voice-state">Connecting…</span>
+          <button type="button" id="voice-stop" class="link">End call</button>
+        </div>
+      </section>
+
+      <!-- Side panel -->
+      <aside class="side">
+        <nav class="tabs" role="tablist">
+          <button role="tab" class="tab active" data-tab="account">Account</button>
+          <button role="tab" class="tab" data-tab="engine">Under the hood</button>
+        </nav>
+
+        <div id="tab-account" class="tabpanel">
+          <h3>Loans</h3>
+          <div id="loans" class="cards"></div>
+          <div id="cards-section" hidden>
+            <h3>Cards</h3>
+            <div id="cards" class="cards"></div>
+          </div>
+          <h3>Recent payments <span class="muted small">last 6 months</span></h3>
+          <ul id="payments" class="rows"></ul>
+          <h3>Service requests</h3>
+          <ul id="requests" class="rows"></ul>
+        </div>
+
+        <div id="tab-engine" class="tabpanel" hidden>
+          <h3>Last turn <span id="turn-total" class="muted small"></span></h3>
+          <div id="waterfall" class="waterfall"><p class="muted small">Ask something to see where the time goes.</p></div>
+          <h3>Latency so far <span class="muted small">p50 / p95 ms</span></h3>
+          <table id="metrics" class="metrics"><tbody></tbody></table>
+          <h3>Backend systems <span class="muted small">fault injection for the demo</span></h3>
+          <table id="faults" class="faults"><tbody></tbody></table>
+          <h3>Audit log</h3>
+          <ul id="audit" class="rows"></ul>
+        </div>
+      </aside>
+    </main>
+  </section>
+
+  <script src="/static/app.js"></script>
+  <script src="/static/voice.js"></script>
+</body>
+</html>

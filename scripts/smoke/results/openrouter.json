@@ -1,0 +1,48 @@
+{
+  "provider": "OpenRouter (free)",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "run_where": "cloud session",
+  "checks": [
+    {
+      "name": "reachable",
+      "ok": true,
+      "detail": "433 models listed; target found",
+      "ms": 539.0405800000053,
+      "skipped": false
+    },
+    {
+      "name": "chat",
+      "ok": true,
+      "detail": "reply='OK'",
+      "ms": 1003.5232760000099,
+      "skipped": false
+    },
+    {
+      "name": "tool call",
+      "ok": true,
+      "detail": "get_loan({\"loan_id\":\"L-1042\"})",
+      "ms": 1155.7523349999883,
+      "skipped": false
+    },
+    {
+      "name": "latency",
+      "ok": true,
+      "detail": "time to first token p50 1744 ms, p95 5622 ms; total p50 2344 ms (3/3 runs ok)",
+      "ms": null,
+      "skipped": false
+    }
+  ],
+  "latency": {
+    "runs": 3,
+    "errors": 0,
+    "ttft_ms_p50": 1744,
+    "ttft_ms_p95": 5622,
+    "total_ms_p50": 2344,
+    "total_ms_p95": 5849
+  },
+  "notes": [
+    "Chosen from 1 free tool-capable models; set OPENROUTER_MODEL=nvidia/nemotron-3-ultra-550b-a55b:free"
+  ],
+  "ok": true,
+  "timestamp": "2026-11-11 02:49:21 UTC"
+}

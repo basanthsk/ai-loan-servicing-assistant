@@ -1,0 +1,29 @@
+{
+  "provider": "Deepgram TTS",
+  "model": "aura-2-thalia-en",
+  "run_where": "your machine",
+  "checks": [
+    {
+      "name": "synthesise mp3",
+      "ok": true,
+      "detail": "36,288 bytes saved to output/tts_sample.mp3",
+      "ms": 3534.349599998677,
+      "skipped": false
+    },
+    {
+      "name": "latency",
+      "ok": true,
+      "detail": "time to first audio byte p50 371 ms, p95 944 ms",
+      "ms": null,
+      "skipped": false
+    }
+  ],
+  "latency": {
+    "runs": 5,
+    "first_audio_byte_ms_p50": 371,
+    "first_audio_byte_ms_p95": 944
+  },
+  "notes": [],
+  "ok": true,
+  "timestamp": "2026-11-12 10:37:15 India Standard Time"
+}

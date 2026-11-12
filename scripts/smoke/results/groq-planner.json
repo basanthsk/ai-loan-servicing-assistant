@@ -1,0 +1,46 @@
+{
+  "provider": "Groq",
+  "model": "openai/gpt-oss-120b",
+  "run_where": "cloud session",
+  "checks": [
+    {
+      "name": "reachable",
+      "ok": true,
+      "detail": "11 models listed; target found",
+      "ms": 507.95263399993473,
+      "skipped": false
+    },
+    {
+      "name": "chat",
+      "ok": true,
+      "detail": "reply='OK'",
+      "ms": 542.59789799994,
+      "skipped": false
+    },
+    {
+      "name": "tool call",
+      "ok": true,
+      "detail": "get_loan({\"loan_id\":\"L-1042\"})",
+      "ms": 531.0763999999608,
+      "skipped": false
+    },
+    {
+      "name": "latency",
+      "ok": true,
+      "detail": "time to first token p50 408 ms, p95 618 ms; total p50 476 ms (5/5 runs ok)",
+      "ms": null,
+      "skipped": false
+    }
+  ],
+  "latency": {
+    "runs": 5,
+    "errors": 0,
+    "ttft_ms_p50": 408,
+    "ttft_ms_p95": 618,
+    "total_ms_p50": 476,
+    "total_ms_p95": 670
+  },
+  "notes": [],
+  "ok": true,
+  "timestamp": "2026-11-11 02:47:46 UTC"
+}

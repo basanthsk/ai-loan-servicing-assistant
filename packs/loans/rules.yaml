@@ -1,0 +1,54 @@
+# Business rules for the loans pack. Evaluated by core/rules.py.
+# Facts available: loan (the loan record from the Loans system, incl.
+# rate_type, purpose, borrower_type, months_since_disbursal), amount (optional),
+# payment (a payment record from the Payments system).
+# Within a topic, the first matching rule decides. Every topic ends with a catch-all.
+
+topics:
+  prepayment_charge:
+    - id: prepay.floating.individual.no_charge
+      when: loan.rate_type == "floating" and loan.borrower_type == "individual" and loan.purpose != "business"
+      then: {charge_pct: 0, penalty_free: true, lock_in_applies: false}
+      clause: LT-6.1
+      explain: Floating-rate loans to individuals for non-business purposes carry no prepayment or foreclosure charge, whatever the lock-in.
+    - id: prepay.fixed.lock_in
+      when: loan.rate_type == "fixed" and loan.months_since_disbursal < 12
+      then: {charge_pct: 4, penalty_free: false, lock_in_applies: true, lock_in_ends_after_months: 12}
+      clause: LT-6.3
+      explain: Fixed-rate loan still inside its 12-month lock-in, so a 4% charge applies to the amount prepaid.
+    - id: prepay.fixed.after_lock_in
+      when: loan.rate_type == "fixed"
+      then: {charge_pct: 2, penalty_free: false, lock_in_applies: false}
+      clause: LT-6.3
+      explain: Fixed-rate loan past its lock-in, so a 2% charge applies to the amount prepaid.
+    - id: prepay.default
+      then: {charge_pct: 2, penalty_free: false, lock_in_applies: false}
+      clause: LT-6.3
+      explain: Default product terms.
+
+  failed_payment_charge:
+    - id: bounce.bank_side
+      when: payment.failure_code == "BANK_TECHNICAL"
+      then: {bounce_charge: 0, customer_at_fault: false, can_raise_dispute: true}
+      clause: PAY-2.1
+      explain: Failure caused by a bank-side technical error, so no bounce charge applies.
+    - id: bounce.customer_side
+      when: payment.failure_code in ["INSUFFICIENT_FUNDS", "MANDATE_EXPIRED"]
+      then: {bounce_charge: 500, customer_at_fault: true, can_raise_dispute: true}
+      clause: PAY-2.1
+      explain: Failure caused by insufficient funds or a stopped or expired mandate, so a Rs 500 bounce charge applies.
+    - id: bounce.default
+      then: {bounce_charge: 0, customer_at_fault: false, can_raise_dispute: true}
+      clause: PAY-2.1
+      explain: No bounce charge for this failure type.
+
+  rate_reset:
+    - id: reset.floating
+      when: loan.rate_type == "floating"
+      then: {rate_can_change: true, reset_frequency: "when the repo rate changes, and at least every 3 months", emi_recalculated: true}
+      clause: LT-4.2
+      explain: Floating rate is the repo rate plus a fixed spread, so the EMI changes when the repo rate changes.
+    - id: reset.fixed
+      then: {rate_can_change: false, emi_recalculated: false}
+      clause: LT-6.3
+      explain: Fixed-rate loan; the rate and EMI do not change.

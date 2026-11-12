@@ -1,0 +1,25 @@
+actions:
+  - name: dispute_card_transaction
+    title: card transaction dispute
+    description: Dispute a card transaction, e.g. a duplicate or unrecognised charge.
+    params:
+      txn_id: {type: string}
+      reason: {type: string, description: "the customer's reason in a few words"}
+    required: [txn_id, reason]
+    request_type: card_dispute
+    prepare: prepare_card_dispute
+    confirm: "Dispute the {amount_inr} charge from {merchant} on {txn_date}. Reason: {reason}."
+    requires_otp: true
+
+  - name: block_card
+    title: card block
+    description: Block a lost, stolen or compromised card immediately.
+    params:
+      card_id: {type: string}
+      reason: {type: string, enum: [lost, stolen, suspicious_activity]}
+    required: [card_id, reason]
+    request_type: card_block
+    prepare: prepare_card_block
+    confirm: "Block your card ending {last4} now ({reason}). It stops working immediately."
+    # Blocking only reduces risk, so it skips the OTP step to be as fast as possible.
+    requires_otp: false

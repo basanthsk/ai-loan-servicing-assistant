@@ -1,0 +1,27 @@
+{
+  "provider": "Deepgram STT",
+  "model": "nova-3",
+  "run_where": "your machine",
+  "checks": [
+    {
+      "name": "file transcription",
+      "ok": true,
+      "detail": "'Your next EMI of INR 12,450 is due on the December 5.'",
+      "ms": 675.5456999962917,
+      "skipped": false
+    },
+    {
+      "name": "streaming transcription",
+      "ok": true,
+      "detail": "5 partial results, first after 1236 ms of streamed audio; final='Your next EMI of 12,450 rupees is due on the December 5.'",
+      "ms": null,
+      "skipped": false
+    }
+  ],
+  "latency": {
+    "first_partial_result_ms": 1236
+  },
+  "notes": [],
+  "ok": true,
+  "timestamp": "2026-11-12 10:37:26 India Standard Time"
+}

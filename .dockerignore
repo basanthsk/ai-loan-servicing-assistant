@@ -1,0 +1,6 @@
+.venv
+.env
+.git
+data/*.db
+scripts/smoke/output
+**/__pycache__

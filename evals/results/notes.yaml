@@ -1,0 +1,27 @@
+# Context for the generated reports (scripts/report.py). Update after each run.
+golden: >-
+  Run on 12 November 2026 on the default chain (Qwen 3.8 27B on Cerebras for every
+  planner and Decider call, no rate-limit errors), on data where the generated customers
+  replay real repayment and card behaviour from the Home Credit Default Risk data
+  (data/open/README.md); the three demo customers are hand-built. 69 questions, including
+  three that ask about a loan and a card in one message (C30-C32), which plan over both
+  packs' tools. The two failures are right in substance but miss the checked wording:
+  L07 says "from 37 to 35 months" rather than "2 months", and C09 lists the Rs 2,999 fee
+  and Rs 540 GST without the Rs 3,539 total. Earlier comparison runs on the first 66
+  questions are kept alongside: golden-*-gpt-oss-120b.json (56/66 after a rerun, mostly
+  quota outages), golden-*-gpt-5-mini.json (OpenAI GPT-5 mini and nano, 56/66, p50 6-7 s)
+  and golden-*-jev-qwen.json (JEV routing with Qwen planning, 61/66).
+live_turns: >-
+  Same run as the golden questions: Qwen 3.8 27B on Cerebras for every call, no
+  rate-limit waits. The mock systems' injected latency (80-900 ms per call) is included.
+decider: >-
+  The current set has 183 decisions: 118 written from our journeys and 65 real
+  customer phrasings from two open datasets, BANKING77 (35, CC BY 4.0) and Bitext
+  retail banking (30, CDLA-Sharing 1.0), mapped onto our intents. Rows with 183 cases
+  ran on 11 November 2026 on that set. keyword+llm:cerebras-qwen is Qwen 3.8 27B, the
+  default, with a 1,200-token budget so its reasoning leaves room for the answer.
+  keyword+jev is TypeSafe JEV 1.14, a dedicated decision model billed for input tokens
+  only. Rows with 118 or 108 cases are earlier runs on the journey-only set and are kept
+  for comparison: gpt-oss-120b on Cerebras, GPT-5 nano on OpenAI, and gpt-oss-20b on
+  Groq, whose latency includes pauses a later benchmark fix removed. The real phrasings
+  are harder: both Qwen and JEV fall from about 95% to about 85-87% accuracy.

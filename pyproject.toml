@@ -1,0 +1,96 @@
+[project]
+name = "loan-servicing-assistant"
+version = "0.1.0"
+description = "AI loan servicing assistant with text and live voice: proof of concept"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # API and services
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "httpx>=0.27",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    # LLM client for every OpenAI-compatible provider (Groq, Cerebras, OpenRouter, Ollama)
+    "openai>=1.40",
+    # Connector SDK: retries and backoff
+    "tenacity>=8.5",
+    # Session state, data, config
+    "redis>=5.0",
+    "sqlalchemy>=2.0",
+    "aiosqlite>=0.20",
+    "pyyaml>=6.0",
+    "pyjwt>=2.9",
+    "faker>=26.0",
+    # Observability
+    "opentelemetry-sdk>=1.26",
+    "opentelemetry-instrumentation-fastapi>=0.47b0",
+    # Voice pipeline, with speech and LLM provider integrations
+    "pipecat-ai[deepgram,silero,webrtc,openai,groq,cerebras,openrouter,ollama]>=1.0",
+    "chromadb (>=1.5.9,<2.0.0)",
+    "fastembed (>=0.9.1,<0.10.0)",
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.3"
+pytest-asyncio = ">=0.24"
+ruff = ">=0.6"
+poethepoet = ">=0.29"
+
+# Only needed to build the Decider benchmark set (BANKING77, Bitext). Install with:
+#   poetry install --with evals
+[tool.poetry.group.evals]
+optional = true
+
+[tool.poetry.group.evals.dependencies]
+datasets = ">=3.0"
+pyarrow = "^26.0.1"
+
+[tool.poe.tasks]
+test = "pytest"
+lint = "ruff check ."
+fmt = "ruff format ."
+check-env = "python scripts/check_env.py"
+seed = "python data/seed.py"
+up = "python scripts/run_all.py"
+chat = "python scripts/chat.py"
+eval = "python evals/run_golden.py"
+index = "python -c \"from core.knowledge import get_knowledge_base as g; kb = g(); print(f'{len(kb.passages)} passages indexed for {kb.packs()} with {kb.model_name}')\""
+eval-rag = "python evals/run_retrieval.py"
+report = "python scripts/report.py"
+loadtest = "python scripts/loadtest.py"
+smoke-ollama = "python scripts/smoke/smoke_ollama.py"
+smoke-groq = "python scripts/smoke/smoke_groq.py"
+smoke-cerebras = "python scripts/smoke/smoke_cerebras.py"
+smoke-openrouter = "python scripts/smoke/smoke_openrouter.py"
+smoke-fallback = "python scripts/smoke/smoke_fallback.py"
+smoke-deepgram = "python scripts/smoke/smoke_deepgram.py"
+smoke-decider = "python scripts/smoke/smoke_decider.py"
+smoke-report = "python scripts/smoke/smoke_report.py"
+
+[tool.poe.tasks.smoke-all]
+help = "Run every cloud-provider smoke test, then write scripts/smoke/results/summary.md"
+sequence = ["smoke-groq", "smoke-cerebras", "smoke-openrouter", "smoke-fallback", "smoke-deepgram", "smoke-decider", "smoke-report"]
+ignore_fail = "return_non_zero"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+# Line length is handled by `ruff format`; long string literals are allowed.
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+# `common` (smoke-test helper) sorts before `core` and puts the repo root on sys.path.
+known-first-party = ["common", "core", "gateway", "services"]
+

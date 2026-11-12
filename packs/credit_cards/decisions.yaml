@@ -1,0 +1,25 @@
+intents:
+  card_minimum_due:
+    description: asks how much is due on their credit card, the minimum due or the card due date
+    fast_path: {function: card_minimum_due}
+  card_bill_change:
+    description: asks why their credit card bill is higher or different
+  card_transactions:
+    description: asks about credit card transactions or charges
+  card_dispute:
+    description: wants to dispute a credit card charge
+  card_block:
+    description: wants to block a lost, stolen or compromised credit card
+  card_interest:
+    description: asks about credit card interest or paying only the minimum
+  card_fees:
+    description: asks about the credit card annual fee or other card fees
+  card_policy:
+    description: asks a general question about credit card rules, procedures or their rights - e.g. statement date or billing cycle, closing the card, credit limit, reward points and their value, liability for fraud, converting a purchase to EMI, international use, cash withdrawals, complaints
+  card_general:
+    description: any other question about their credit card
+
+# Words that show a message is about this pack (used to spot multi-product messages)
+mentions: ['\bcredit cards?\b', '\bcard (bill|statement|balance|ending)', '\bminimum due\b', '\bending \d{4}\b', '\bannual fee\b']
+fast_path_threshold: 0.85
+confirmation_threshold: 0.9

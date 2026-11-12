@@ -1,0 +1,555 @@
+{
+ "pack": "cards",
+ "run_at": "2026-11-11 10:29 UTC",
+ "passed": 25,
+ "total": 29,
+ "results": [
+  {
+   "id": "C01",
+   "customer": "C1001",
+   "question": "How much do I owe on my credit card?",
+   "answer": "Your card ending 4417 has a statement balance of ₹43,086. The minimum due is ₹2,154, by 20 November 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_minimum_due",
+   "numbers_verified": true,
+   "tools": [
+    "card_minimum_due"
+   ],
+   "total_ms": 646,
+   "first_words_ms": 646.2,
+   "first_status_ms": 646.1,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C02",
+   "customer": "C1001",
+   "question": "What's the minimum due on my card?",
+   "answer": "Your card ending 4417 has a statement balance of ₹43,086. The minimum due is ₹2,154, by 20 November 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_minimum_due",
+   "numbers_verified": true,
+   "tools": [
+    "card_minimum_due"
+   ],
+   "total_ms": 642,
+   "first_words_ms": 642.2,
+   "first_status_ms": 642.1,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C03",
+   "customer": "C1001",
+   "question": "When is my credit card bill due?",
+   "answer": "Your card ending 4417 has a statement balance of ₹43,086. The minimum due is ₹2,154, by 20 November 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_minimum_due",
+   "numbers_verified": true,
+   "tools": [
+    "card_minimum_due"
+   ],
+   "total_ms": 489,
+   "first_words_ms": 489.0,
+   "first_status_ms": 488.9,
+   "providers": []
+  },
+  {
+   "id": "C04",
+   "customer": "C1001",
+   "question": "Why is my credit card bill higher this month?",
+   "answer": "Your bill is higher by ₹21,206 mainly because of a big electronics purchase of ₹24,999 at Croma Electronics and a new ₹3,539 fee charge this month. There’s also a possible duplicate QuickRide Plus subscription charge of ₹1,299 on 2025‑10‑05 (txn T‑7781‑2610‑02) that you can dispute if you’d like [CC‑5.1].",
+   "passed": true,
+   "problems": [],
+   "intent": "card_bill_change",
+   "numbers_verified": true,
+   "tools": [
+    "explain_bill_change"
+   ],
+   "total_ms": 63131,
+   "first_words_ms": 63079.8,
+   "first_status_ms": 61127.2,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C05",
+   "customer": "C1001",
+   "question": "Why is my card bill so much more than last month?",
+   "answer": "Your bill is higher mainly because of a big electronics purchase of ₹24,999 at Croma (2026‑10‑12) and a new fee of ₹3,539. The total increase is ₹21,206 versus last month. There’s also a possible duplicate charge of ₹1,299 on 5 Oct for a QuickRide Plus subscription (txn T‑7781‑2610‑02). Would you like to dispute that transaction? [CC-5.1]",
+   "passed": true,
+   "problems": [],
+   "intent": "card_bill_change",
+   "numbers_verified": true,
+   "tools": [
+    "explain_bill_change"
+   ],
+   "total_ms": 1154,
+   "first_words_ms": 1088.6,
+   "first_status_ms": 825.5,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C06",
+   "customer": "C1001",
+   "question": "Is there anything odd on my latest card statement?",
+   "answer": "Your statement shows a ₹24,999 electronics purchase (Croma Electronics on 2026‑10‑12) and a new ₹3,539 fees charge, which together explain the ₹21,206 increase from the prior month. There’s also a possible duplicate charge ₹1,299 for a QuickRide Plus subscription on 2026‑10‑05 (txn T‑7781‑2610‑02).  \n\nWould you like me to dispute that duplicate transaction [CC‑5.1]?",
+   "passed": true,
+   "problems": [],
+   "intent": "card_general",
+   "numbers_verified": true,
+   "tools": [
+    "explain_bill_change"
+   ],
+   "total_ms": 61544,
+   "first_words_ms": 61505.8,
+   "first_status_ms": 881.9,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C07",
+   "customer": "C1001",
+   "question": "Was I charged twice for anything on my card?",
+   "answer": "Your latest statement shows a possible duplicate charge of ₹1,299 on 2026‑10‑05 for a QuickRide Plus subscription (txn T‑7781‑2610‑02) [CC‑5.1]. Would you like me to raise a dispute for this transaction?",
+   "passed": true,
+   "problems": [],
+   "intent": "card_dispute",
+   "numbers_verified": true,
+   "tools": [
+    "explain_bill_change"
+   ],
+   "total_ms": 2470,
+   "first_words_ms": 2424.2,
+   "first_status_ms": 930.2,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C08",
+   "customer": "C1001",
+   "question": "What was my biggest card purchase last month?",
+   "answer": "Your biggest purchase in October was ₹ 24,999 at Croma Electronics on 2026‑10‑12.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_transactions",
+   "numbers_verified": true,
+   "tools": [
+    "get_card_transactions"
+   ],
+   "total_ms": 60767,
+   "first_words_ms": 60755.7,
+   "first_status_ms": 867.5,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C09",
+   "customer": "C1001",
+   "question": "How much were the fees on my latest card statement?",
+   "answer": "Your latest statement shows fees of ₹3,539 [inr] [CC-3.2]. \n\nThere is also a possible duplicate charge of ₹1,299 on 2026‑10‑05 for a QuickRide Plus subscription (txn T‑7781‑2610‑02) [CC-5.1].",
+   "passed": true,
+   "problems": [],
+   "intent": "card_fees",
+   "numbers_verified": true,
+   "tools": [
+    "get_card_details",
+    "explain_bill_change"
+   ],
+   "total_ms": 2802,
+   "first_words_ms": 2741.2,
+   "first_status_ms": 871.0,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C10",
+   "customer": "C1001",
+   "question": "Why was I charged an annual fee on my card?",
+   "answer": "The annual membership fee of Rs 2,999 plus GST is charged on the card’s anniversary [CC-3.2]. It can be waived for the next year if your eligible spend in the card year reaches Rs 2,00,000.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_fees",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 61192,
+   "first_words_ms": 61172.9,
+   "first_status_ms": 2503.1,
+   "providers": [
+    "cerebras",
+    "groq"
+   ]
+  },
+  {
+   "id": "C11",
+   "customer": "C1001",
+   "question": "How much more do I need to spend to get the annual fee waived?",
+   "answer": "You need to spend an additional ₹53,700 to meet the ₹2,00,000 spend threshold and have the annual fee waived [CC-3.2].",
+   "passed": true,
+   "problems": [],
+   "intent": "card_fees",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy",
+    "check_annual_fee"
+   ],
+   "total_ms": 1891,
+   "first_words_ms": 1855.8,
+   "first_status_ms": 841.5,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C12",
+   "customer": "C1001",
+   "question": "What happens if I pay only the minimum on my card?",
+   "answer": "Paying only the minimum of ₹2,154 means the remaining ₹40,932 will carry forward and attract interest at 3.75 % per month (₹1,535 interest + ₹276 GST = ₹1,811 total cost) [CC-4.1]. New purchases will also lose the interest‑free period and start accruing interest from the day of purchase.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_interest",
+   "numbers_verified": true,
+   "tools": [
+    "simulate_minimum_payment"
+   ],
+   "total_ms": 60704,
+   "first_words_ms": 60661.6,
+   "first_status_ms": 782.8,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C13",
+   "customer": "C1001",
+   "question": "How much interest would I pay if I pay just the minimum due?",
+   "answer": "I'm sorry, my language service isn't responding right now. Your account panel still shows your loans and payments. Please try again in a minute.",
+   "passed": false,
+   "problems": [
+    "missing number 1535"
+   ],
+   "intent": null,
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 441,
+   "first_words_ms": 441.2,
+   "first_status_ms": null,
+   "providers": []
+  },
+  {
+   "id": "C14",
+   "customer": "C1001",
+   "question": "If I pay the full card balance, do I pay any interest?",
+   "answer": "Purchases are interest‑free until the due date if you pay the full statement balance on your card ending 4417. If any amount remains unpaid, interest of 3.75 % per month (45 % per year) accrues on the unpaid balance and on new purchases from their transaction date, plus GST on the interest [CC-4.1].",
+   "passed": true,
+   "problems": [],
+   "intent": "card_interest",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 60277,
+   "first_words_ms": 60243.1,
+   "first_status_ms": 6758.9,
+   "providers": [
+    "cerebras",
+    "groq"
+   ]
+  },
+  {
+   "id": "C15",
+   "customer": "C1001",
+   "question": "What was my previous card statement amount?",
+   "answer": "Your previous statement (Sept 1‑Sept 30) was **₹21,880**. The current statement (Oct 1‑Oct 31) is ₹43,086, so the bill rose by ₹21,206. The biggest increase was a large electronics purchase of ₹24,999. A possible duplicate charge is a QuickRide Plus subscription of ₹1,299 on 2026‑10‑05【CC-3.2】.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_general",
+   "numbers_verified": true,
+   "tools": [
+    "explain_bill_change"
+   ],
+   "total_ms": 2708,
+   "first_words_ms": 2672.2,
+   "first_status_ms": 910.4,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C16",
+   "customer": "C1001",
+   "question": "Please dispute the duplicate QuickRide charge on my card.",
+   "answer": "I will submit a dispute for the ₹1,299 QuickRide Plus subscription charge on 5 Oct 2026 (duplicate charge) [CC-5.1]. Please confirm you’d like to proceed.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_dispute",
+   "numbers_verified": true,
+   "tools": [
+    "explain_bill_change"
+   ],
+   "total_ms": 61595,
+   "first_words_ms": 61563.1,
+   "first_status_ms": 59441.0,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C17",
+   "customer": "C1001",
+   "question": "I lost my credit card, block it now.",
+   "answer": "I’m ready to submit a request to block your card ending 4417 as lost. Please confirm you’d like to proceed.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_block",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 87013,
+   "first_words_ms": 87010.2,
+   "first_status_ms": null,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C18",
+   "customer": "C1001",
+   "question": "Someone is misusing my card, please block it.",
+   "answer": "I'm sorry, my language service isn't responding right now. Your account panel still shows your loans and payments. Please try again in a minute.",
+   "passed": false,
+   "problems": [
+    "no action proposed (expected block_card)"
+   ],
+   "intent": "unrouted",
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 880,
+   "first_words_ms": 880.4,
+   "first_status_ms": null,
+   "providers": []
+  },
+  {
+   "id": "C19",
+   "customer": "C1001",
+   "question": "Yes, dispute the duplicate one.",
+   "answer": "We’ll submit a dispute for the ₹1,299 QuickRide Plus subscription charge on 5 Oct 2026, citing it as a duplicate. Please confirm you’d like to proceed.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_dispute",
+   "numbers_verified": true,
+   "tools": [
+    "explain_bill_change"
+   ],
+   "total_ms": 121129,
+   "first_words_ms": 121116.9,
+   "first_status_ms": 60603.3,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C20",
+   "customer": "C1001",
+   "question": "And what if I pay only that?",
+   "answer": "I'm sorry, my language service isn't responding right now. Your account panel still shows your loans and payments. Please try again in a minute.",
+   "passed": false,
+   "problems": [
+    "missing number 1535"
+   ],
+   "intent": null,
+   "numbers_verified": true,
+   "tools": [],
+   "total_ms": 157,
+   "first_words_ms": 156.8,
+   "first_status_ms": null,
+   "providers": []
+  },
+  {
+   "id": "C21",
+   "customer": "C1001",
+   "question": "How much did I spend on electronics on my card last month?",
+   "answer": "You spent ₹24,999 on electronics (Croma Electronics on 2026‑10‑12) with your card ending 4417.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_transactions",
+   "numbers_verified": true,
+   "tools": [
+    "get_card_transactions"
+   ],
+   "total_ms": 89236,
+   "first_words_ms": 89211.6,
+   "first_status_ms": 62647.2,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C22",
+   "customer": "C1001",
+   "question": "What's the interest rate on my credit card?",
+   "answer": "Your Platinum Rewards Credit Card ending 4417 has a monthly interest rate of **3.75 %**.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_interest",
+   "numbers_verified": true,
+   "tools": [
+    "get_card_details"
+   ],
+   "total_ms": 34182,
+   "first_words_ms": 34178.5,
+   "first_status_ms": 1015.8,
+   "providers": [
+    "cerebras",
+    "groq"
+   ]
+  },
+  {
+   "id": "C23",
+   "customer": "C1001",
+   "question": "What's my card's statement balance and when do I need to pay?",
+   "answer": "Your card ending 4417 has a statement balance of ₹43,086. The minimum due is ₹2,154, by 20 November 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_minimum_due",
+   "numbers_verified": true,
+   "tools": [
+    "card_minimum_due"
+   ],
+   "total_ms": 1021,
+   "first_words_ms": 1020.9,
+   "first_status_ms": 1020.9,
+   "providers": []
+  },
+  {
+   "id": "C24",
+   "customer": "C1002",
+   "question": "What's the minimum due on my credit card?",
+   "answer": "You don’t have a credit card with us, so there’s no minimum due to show. If you’d like to open a credit card, let me know and I can help you get started.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_minimum_due",
+   "numbers_verified": true,
+   "tools": [
+    "card_minimum_due"
+   ],
+   "total_ms": 25858,
+   "first_words_ms": 25842.7,
+   "first_status_ms": 1414.5,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C25",
+   "customer": "C1001",
+   "question": "And how much is due on my card?",
+   "answer": "Your card ending 4417 has a statement balance of ₹43,086. The minimum due is ₹2,154, by 20 November 2026.",
+   "passed": true,
+   "problems": [],
+   "intent": "card_minimum_due",
+   "numbers_verified": true,
+   "tools": [
+    "card_minimum_due"
+   ],
+   "total_ms": 260,
+   "first_words_ms": 260.2,
+   "first_status_ms": 260.1,
+   "providers": []
+  },
+  {
+   "id": "C26",
+   "customer": "C1001",
+   "question": "Can I change my credit card statement date?",
+   "answer": "You can change your statement (billing) date once by submitting a service request in the app. The new cycle will start with the next statement, and the due date will shift accordingly. If you’d like, I can raise that request for you. [KB-C-01]",
+   "passed": true,
+   "problems": [],
+   "intent": "card_policy",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 59351,
+   "first_words_ms": 59324.4,
+   "first_status_ms": 58882.3,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C27",
+   "customer": "C1001",
+   "question": "I want to close my credit card. How long will it take?",
+   "answer": "A card can be closed by a request in the app, by email or by phone once all dues are paid. The closure is completed within **7 working days**【KB-C-03】. If it takes longer, the bank pays a penalty of Rs 500 per day of delay until the account is closed. [KB-C-03]",
+   "passed": true,
+   "problems": [],
+   "intent": "card_policy",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 88836,
+   "first_words_ms": 88816.7,
+   "first_status_ms": 61354.6,
+   "providers": [
+    "cerebras"
+   ]
+  },
+  {
+   "id": "C28",
+   "customer": "C1001",
+   "question": "Someone used my card without permission yesterday. Am I liable?",
+   "answer": "I'm sorry, my language service isn't responding right now. Your account panel still shows your loans and payments. Please try again in a minute.",
+   "passed": false,
+   "problems": [
+    "missing word 'KB-C-05'",
+    "missing word 'zero|no liability|not liable|₹0|rs 0'"
+   ],
+   "intent": "card_policy",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy",
+    "search_policy"
+   ],
+   "total_ms": 1844,
+   "first_words_ms": 1844.0,
+   "first_status_ms": 1512.1,
+   "providers": [
+    "cerebras",
+    "groq"
+   ]
+  },
+  {
+   "id": "C29",
+   "customer": "C1001",
+   "question": "How much is a reward point worth?",
+   "answer": "Reward points can be redeemed for statement credit at ₹0.25 per point (25 paise)【KB-C-06】. [KB-C-06]",
+   "passed": true,
+   "problems": [],
+   "intent": "card_policy",
+   "numbers_verified": true,
+   "tools": [
+    "search_policy"
+   ],
+   "total_ms": 90405,
+   "first_words_ms": 90402.7,
+   "first_status_ms": 61427.3,
+   "providers": [
+    "cerebras"
+   ]
+  }
+ ]
+}

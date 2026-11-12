@@ -1,0 +1,32 @@
+# Intents the Decider routes on. Names must be unique across all packs.
+# An intent with a fast_path is answered by a pack function and a template,
+# with no planner call, when the Decider is at least fast_path_threshold sure.
+intents:
+  loan_next_emi:
+    description: asks when the next loan EMI is due or how much it is
+    fast_path: {function: next_emi}
+  loan_emi_change:
+    description: asks why a loan EMI or interest rate changed
+  loan_prepayment:
+    description: asks about prepaying part of a loan, or wants to make a prepayment
+  loan_foreclosure:
+    description: asks about closing a loan early or foreclosure charges
+  loan_payments:
+    description: asks about past loan payments, failed or bounced EMIs, or charges on them
+  loan_dispute:
+    description: wants to dispute a payment or a charge on a loan
+  loan_options:
+    description: asks what options they have on their loan
+  loan_statement:
+    description: wants a loan statement or repayment schedule
+  loan_requests:
+    description: asks about the status of a service request
+  loan_policy:
+    description: asks a general question about loan rules, procedures or their rights, not about figures on their own loan - e.g. changing the EMI date or bank account, interest certificates, credit score, rate-reset options, top-up loans, raising or escalating a complaint, the ombudsman, fraud calls
+  loan_general:
+    description: any other question about their loans or loan terms
+
+# Words that show a message is about this pack (used to spot multi-product messages)
+mentions: ['\bemis?\b', '\bloans?\b', '\bprepa(y|yment)', '\bforeclos', '\btenure\b', '\bL-\d{4}\b']
+fast_path_threshold: 0.85
+confirmation_threshold: 0.9

@@ -1,0 +1,61 @@
+# Write operations. Each runs only through the action framework:
+# confirm -> OTP (if requires_otp) -> idempotent request to Service Ops -> audit.
+actions:
+  - name: raise_payment_dispute
+    title: payment dispute
+    description: Dispute a failed payment or its bounce charge.
+    params:
+      payment_id: {type: string, description: "id of the failed payment, e.g. P000123F"}
+      reason: {type: string, description: "the customer's reason in a few words"}
+    required: [payment_id, reason]
+    request_type: payment_dispute
+    prepare: prepare_dispute
+    confirm: "Raise a dispute about the failed payment due on {due_date} (bounce charge {charge}). Reason: {reason}."
+    requires_otp: true
+
+  - name: request_prepayment
+    title: prepayment request
+    description: Submit a part-prepayment request on a loan.
+    params:
+      loan_id: {type: string}
+      amount: {type: number, description: "rupees"}
+      mode: {type: string, enum: [reduce_tenure, reduce_emi], description: "default reduce_tenure"}
+    required: [loan_id, amount]
+    request_type: prepayment_request
+    prepare: prepare_prepayment
+    confirm: "Submit a prepayment of {amount} on loan {loan_id} and {mode_text}. Prepayment charge: {charge_inr}."
+    requires_otp: true
+
+  - name: request_foreclosure
+    title: foreclosure request
+    description: Request a foreclosure statement to close the loan.
+    params:
+      loan_id: {type: string}
+    required: [loan_id]
+    request_type: foreclosure_request
+    prepare: prepare_foreclosure
+    confirm: "Request a foreclosure statement for loan {loan_id}. Amount payable today: {total_payable_inr}."
+    requires_otp: true
+
+  - name: send_repayment_statement
+    title: repayment statement
+    description: Email a repayment statement for a loan.
+    params:
+      loan_id: {type: string}
+      period: {type: string, description: "default last 12 months"}
+    required: [loan_id]
+    request_type: repayment_statement
+    prepare: prepare_statement
+    confirm: "Email the repayment statement for loan {loan_id} to your registered email address."
+    requires_otp: false
+
+  - name: create_service_ticket
+    title: service ticket
+    description: Raise a general servicing ticket when no other action fits.
+    params:
+      subject: {type: string}
+      description: {type: string}
+    required: [subject, description]
+    request_type: servicing_ticket
+    confirm: "Raise a service ticket: {subject}."
+    requires_otp: false

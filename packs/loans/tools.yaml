@@ -1,0 +1,131 @@
+title: Loan servicing
+description: Personal loans - EMIs, rate resets, payments, prepayment and foreclosure.
+
+# Descriptions are kept short: every tool schema is sent with every planner call.
+tools:
+  - name: get_loan_details
+    description: One loan's details, rate history and last 4 EMIs.
+    kind: http
+    system: loans
+    path: /loans/{loan_id}
+    params:
+      loan_id: {type: string, description: "e.g. L-1042"}
+    required: [loan_id]
+    cache_ttl_s: 60
+    fields: [loan_id, product, rate_type, current_rate_pct, outstanding_principal, current_emi,
+             next_due_date, remaining_installments, months_since_disbursal, rate_history,
+             recent_installments, mandate_status]
+    status: Looking up your loan
+
+  - name: get_upcoming_schedule
+    description: Upcoming EMIs for a loan with interest and principal split.
+    kind: http
+    system: loans
+    path: /loans/{loan_id}/schedule
+    params:
+      loan_id: {type: string}
+      upcoming: {type: integer, description: "how many EMIs, default 6"}
+    required: [loan_id]
+    cache_ttl_s: 60
+    status: Checking your repayment schedule
+
+  - name: get_payment_history
+    description: Payments in the last N months (status success or failed). For failures with explanations use explain_failed_payments.
+    kind: http
+    system: payments
+    path: /customers/{customer_id}/payments
+    params:
+      loan_id: {type: string}
+      status: {type: string, enum: [success, failed]}
+      months: {type: integer, description: "default 6"}
+    items_key: payments
+    fields: [payment_id, loan_id, due_date, attempt_date, amount, status, failure_reason, mode, charge]
+    cache_ttl_s: 30
+    status: Checking your payment history
+    slow: true
+
+  - name: get_service_requests
+    description: The customer's service requests and their status.
+    kind: http
+    system: serviceops
+    path: /customers/{customer_id}/requests
+    fields: [request_id, type, status, created_at, sla_due]
+    status: Checking your requests
+    slow: true
+
+  - name: get_policy_clause
+    description: Text of a policy clause by id, e.g. LT-6.1.
+    kind: http
+    system: policy
+    path: /clauses/{clause_id}
+    params:
+      clause_id: {type: string}
+    required: [clause_id]
+    cache_ttl_s: 3600
+    status: Checking the policy
+
+  - name: explain_emi_change
+    description: Why the latest EMI differs from the previous one (rate reset, amounts, clause).
+    kind: python
+    function: explain_emi_change
+    params:
+      loan_id: {type: string}
+    required: [loan_id]
+    status: Comparing your last two EMIs
+
+  - name: simulate_prepayment
+    description: Effect of a part-prepayment today. Returns both options - same EMI with a shorter tenure, and same tenure with a lower new EMI - with the charge and interest saved for each.
+    kind: python
+    function: simulate_prepayment
+    params:
+      loan_id: {type: string}
+      amount: {type: number, description: "rupees"}
+    required: [loan_id, amount]
+    status: Calculating the effect of a prepayment
+
+  - name: check_foreclosure
+    description: Whether closing the loan now has a charge, and the amount payable today.
+    kind: python
+    function: check_foreclosure
+    params:
+      loan_id: {type: string}
+    required: [loan_id]
+    status: Checking foreclosure terms
+
+  - name: explain_failed_payments
+    description: Failed EMI debits with cause, how each was resolved and any bounce charge.
+    kind: python
+    function: explain_failed_payments
+    params:
+      months: {type: integer, description: "default 6"}
+      loan_id: {type: string}
+    status: Checking your failed payments
+    slow: true
+
+  - name: loan_options
+    description: The customer's options on a loan (prepay, foreclose, continue, statement) with charges.
+    kind: python
+    function: loan_options
+    params:
+      loan_id: {type: string}
+    required: [loan_id]
+    status: Working out your options
+
+  - name: next_emi
+    description: Next EMI amount and due date for one or all loans.
+    kind: python
+    function: next_emi
+    params:
+      loan_id: {type: string}
+    status: Checking your next EMI
+
+  - name: search_policy
+    description: Search the loan policy documents and FAQ for rules, procedures, charges and customer rights not covered by the other tools (e.g. changing the EMI date or bank account, complaints, credit bureau, KFS). Returns passages with ids to cite.
+    kind: http
+    system: policy
+    path: /search/loans
+    params:
+      query: {type: string, description: "the customer's question, rephrased as a standalone question"}
+    required: [query]
+    cache_ttl_s: 300
+    status: Searching the loan policies

@@ -1,0 +1,14 @@
+{
+ "run_at": "2026-11-11 04:11 UTC",
+ "summary": "Sandbox rows: measured in the cloud sandbox with real WebRTC calls from headless Chromium using a fake microphone (synthesised customer speech). The sandbox blocks WebSockets, so those runs used the HTTP fallbacks: Groq Whisper (speech-to-text after each pause) and Deepgram HTTP text-to-speech. Local rows: Deepgram smoke tests on the owner's machine in India on 12 November 2026, where streaming works; Deepgram's servers are in the US, so each request costs about 200 ms more than from the sandbox. End-of-speech to first audio with a real microphone is still to be measured (evals/results/voice-calls.jsonl).",
+ "measurements": {
+  "End of speech to first audio, fast path ('What is my next EMI?'), sandbox": "2.5 s",
+  "End of speech to first audio, planner + tools ('Why did my EMI go up?'), sandbox": "3.1 - 3.6 s",
+  "Filler line when a slow system is called, sandbox": "spoken, about 2.6 s after end of speech",
+  "Barge-in: assistant stops after the customer starts talking over it, sandbox": "about 1.2 s (0.8 s sustained-speech rule + VAD)",
+  "Backchannel ('mm-hmm') while the assistant talks": "ignored, no interruption (unit tested)",
+  "Speech-to-text streaming, local (Deepgram Nova-3)": "works; 5 partial results while speaking, final transcript correct ('Your next EMI of 12,450 rupees is due on the December 5.')",
+  "Speech-to-text on a file, local / sandbox": "676 ms / 161 ms",
+  "Text-to-speech first audio byte, local (Deepgram Aura-2, 5 runs)": "p50 371 ms, p95 944 ms (sandbox p50 179 ms)"
+ }
+}
